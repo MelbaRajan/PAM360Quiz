@@ -167,7 +167,11 @@ function av(name,sz,fs,extra=''){
   return`<div class="av" style="width:${sz}px;height:${sz}px;min-width:${sz}px;background:${gc(name)};font-size:${fs}px${extra?';'+extra:''}">${ini(name)}</div>`
 }
 function lbData(){
-  return Object.entries(G.players).sort((a,b)=>b[1].score-a[1].score).map(([n,d],i)=>({rank:i+1,name:n,...d}));
+  return Object.entries(G.players).sort((a,b)=>b[1].score-a[1].score).map(([n,d],i)=>{
+    const answered = Object.values(d.answers||{}).length;
+    const correct = Object.values(d.answers||{}).filter(a=>a.correct).length;
+    return {rank:i+1, name:n, answered, correct, ...d};
+  });
 }
 function set(h){document.getElementById('root').innerHTML=h}
 function go(v){G.view=v;render()}
@@ -300,36 +304,24 @@ function rAdminLobby(){
     </div>
 
     <div class="card" style="margin-bottom:1rem">
-      <p class="sec">Add participant manually</p>
-      <div style="display:flex;gap:8px">
-        <input type="text" id="add-name" placeholder="Type nickname and press Enter" maxlength="20" style="flex:1" />
-        <button class="btn btn-green" onclick="adminAddPlayer()">+ Add</button>
-      </div>
-      <div id="add-err" style="font-size:12px;color:#dc2626;min-height:14px;margin-top:4px"></div>
-    </div>
-
-    <div class="card" style="margin-bottom:1rem">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-        <p class="sec" style="margin-bottom:0">Players in lobby (${count})</p>
+        <p class="sec" style="margin-bottom:0">Players joined (${count})</p>
         <button class="btn" onclick="adminAddDemo()" style="font-size:11px;padding:3px 8px">+ Demo players</button>
       </div>
-      <div id="player-list" style="display:flex;flex-wrap:wrap;gap:4px;min-height:28px">
+      <div style="display:flex;flex-wrap:wrap;gap:4px;min-height:32px">
         ${count===0
-          ? '<p style="font-size:13px;color:#bbb;padding:4px 0">No players yet — add manually or share the link/QR.</p>'
+          ? '<p style="font-size:13px;color:#bbb;padding:4px 0">No players yet — share the QR code or link so participants can join from their own devices.</p>'
           : renderChips()}
       </div>
     </div>
 
     <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-      <button class="btn btn-green" style="font-size:15px;font-weight:600;padding:0.7rem 1.5rem" onclick="adminStart()" ${count===0?'disabled':''}>
+      <button class="btn btn-green" style="font-size:15px;font-weight:600;padding:0.7rem 1.5rem" onclick="adminStart()">
         &#9654;&nbsp; Start quiz${count>0?' ('+count+' player'+(count!==1?'s':'')+')':''}
       </button>
-      ${count===0?'<span style="font-size:12px;color:#aaa">Add at least one player to start</span>':''}
+      <span style="font-size:12px;color:#aaa">${count===0?'Players can still join after you start':'Ready to go!'}</span>
     </div>
   </div>`);
-  const inp=document.getElementById('add-name');
-  inp.focus();
-  inp.addEventListener('keydown',e=>{if(e.key==='Enter')adminAddPlayer();});
 }
 
 function renderChips(){
@@ -337,28 +329,9 @@ function renderChips(){
     <div class="chip" style="background:${gc(name)}18;border-color:${gc(name)}55;color:#333">
       ${av(name,16,8,'vertical-align:middle')}
       <span style="margin-left:3px">${name}</span>
-      <span onclick="removePlayer('${name}')" style="margin-left:4px;cursor:pointer;color:#aaa;font-size:14px;line-height:1" title="Remove">&#215;</span>
     </div>`).join('');
 }
 
-function adminAddPlayer(){
-  const inp=document.getElementById('add-name');
-  const name=inp.value.trim();
-  const err=document.getElementById('add-err');
-  if(!name){err.textContent='Enter a nickname.';return;}
-  if(name.length<2){err.textContent='At least 2 characters.';return;}
-  if(G.players[name]){err.textContent=`"${name}" is already in the lobby.`;return;}
-  G.players[name]={score:0,answers:{},color:gc(name)};
-  err.textContent='';
-  inp.value='';
-  inp.focus();
-  rAdminLobby();
-}
-
-function removePlayer(name){
-  delete G.players[name];
-  rAdminLobby();
-}
 
 function adminAddDemo(){
   ['Priya_K','DevOps_Sam','SecLead_Jo','CloudArch','SysAdmin99','PenTester','NetOps_Al','IAM_Expert','Infra_Dan','ReleaseBot'].forEach(n=>{
@@ -443,6 +416,7 @@ function rAdminReveal(){
           <span style="font-size:16px;width:26px;text-align:center">${['🥇','🥈','🥉'][i]}</span>
           ${av(p.name,30,11)}
           <span class="lb-name">${p.name}</span>
+          <span style="font-size:11px;color:#888;white-space:nowrap">${p.correct||0}/${p.answered||0} ✓</span>
           <span class="lb-pts">${p.score} pts</span>
         </div>`).join('')}
       ${top3.length===0?'<p style="font-size:13px;color:#aaa">No scores yet.</p>':''}
@@ -488,6 +462,7 @@ function rAdminLB(){
     r.innerHTML=`<span style="font-size:${i<3?18:13}px;width:28px;text-align:center">${i===0?'🥇':i===1?'🥈':i===2?'🥉':p.rank}</span>
       ${av(p.name,32,12)}
       <span class="lb-name">${p.name}</span>
+      <span style="font-size:11px;color:#888;white-space:nowrap">${p.correct||0}/${p.answered||0} correct</span>
       <div class="lb-bar-bg"><div class="lb-bar-fill" style="width:${Math.round(p.score/ms*100)}%"></div></div>
       <span class="lb-pts">${p.score} pts</span>`;
     el.appendChild(r);
@@ -536,6 +511,7 @@ function rAdminFinished(){
     r.innerHTML=`<span style="font-size:13px;font-weight:700;width:28px;text-align:center;color:#999">${p.rank}</span>
       ${av(p.name,30,11)}
       <span class="lb-name">${p.name}</span>
+      <span style="font-size:11px;color:#888;white-space:nowrap">${p.correct||0}/${p.answered||0} correct</span>
       <div class="lb-bar-bg"><div class="lb-bar-fill" style="width:${Math.round(p.score/ms*100)}%"></div></div>
       <span class="lb-pts">${p.score} pts</span>`;
     el.appendChild(r);

@@ -9,23 +9,23 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f0ee;color:#1a1a1a;min-height:100vh}
 .page{min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem}
-.wrap{width:100%;max-width:640px}
+.wrap{width:100%;max-width:620px}
 .card{background:#fff;border:1px solid #e0e0de;border-radius:14px;padding:1.5rem;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:0.55rem 1.15rem;border:1px solid #ccc;border-radius:8px;background:#fff;color:#1a1a1a;font-size:14px;cursor:pointer;font-family:inherit;transition:background 0.12s,border-color 0.12s}
-.btn:hover:not(:disabled){background:#f5f5f3;border-color:#aaa}
-.btn:disabled{opacity:0.35;cursor:not-allowed}
+.btn:hover:not(:disabled){background:#f0f0ee;border-color:#aaa}
+.btn:disabled{opacity:0.38;cursor:not-allowed}
 .btn-green{background:#1D9E75;border-color:#1D9E75;color:#fff}
 .btn-green:hover:not(:disabled){background:#0F6E56;border-color:#0F6E56}
 .btn-red{background:#E24B4A;border-color:#E24B4A;color:#fff}
-.btn-red:hover:not(:disabled){background:#c03a39;border-color:#c03a39}
+.btn-red:hover:not(:disabled){background:#c03a39}
 .btn-blue{background:#2563EB;border-color:#2563EB;color:#fff}
-.btn-blue:hover:not(:disabled){background:#1a4fcf;border-color:#1a4fcf}
+.btn-blue:hover:not(:disabled){background:#1a4fcf}
 input[type=text]{width:100%;padding:0.6rem 0.85rem;border:1px solid #ccc;border-radius:8px;font-size:14px;font-family:inherit;color:#1a1a1a;background:#fff}
 input[type=text]:focus{outline:none;border-color:#1D9E75;box-shadow:0 0 0 3px #1D9E7520}
-.tag{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;font-weight:600;letter-spacing:0.02em}
+.tag{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;font-weight:600}
 .tag-blue{background:#dbeafe;color:#1e40af}
-.tag-green{background:#dcfce7;color:#166534}
 .tag-orange{background:#ffedd5;color:#9a3412}
+.tag-green{background:#dcfce7;color:#166534}
 .metric{background:#f8f8f6;border:1px solid #e8e8e6;border-radius:10px;padding:0.9rem;text-align:center}
 .metric-val{font-size:26px;font-weight:700;color:#1a1a1a;line-height:1}
 .metric-lbl{font-size:11px;color:#888;margin-top:4px;font-weight:500;text-transform:uppercase;letter-spacing:0.04em}
@@ -34,27 +34,31 @@ input[type=text]:focus{outline:none;border-color:#1D9E75;box-shadow:0 0 0 3px #1
 .opt.picked{border-color:#1D9E75;background:#e6f7f1;color:#064e3b}
 .opt.correct{border-color:#16a34a;background:#dcfce7;color:#14532d;font-weight:600}
 .opt.wrong{border-color:#dc2626;background:#fee2e2;color:#7f1d1d}
-.opt.reveal-correct{border-color:#16a34a;background:#dcfce7;color:#14532d;font-weight:600}
 .opt:disabled{cursor:default}
 .timer{width:56px;height:56px;border-radius:50%;border:3.5px solid #e0e0de;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex-shrink:0;transition:border-color 0.3s,color 0.3s}
-.timer-warn{border-color:#f59e0b;color:#b45309}
-.timer-danger{border-color:#ef4444;color:#dc2626}
+.timer-warn{border-color:#f59e0b!important;color:#b45309!important}
+.timer-danger{border-color:#ef4444!important;color:#dc2626!important}
 .prog-bg{height:5px;background:#e0e0de;border-radius:3px;overflow:hidden;margin-bottom:1.1rem}
 .prog-fill{height:100%;background:#1D9E75;border-radius:3px;transition:width 0.4s}
-.lb-row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;margin-bottom:5px;background:#f8f8f6;border:1px solid #ececea}
+.lb-row{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:9px;margin-bottom:5px;background:#f8f8f6;border:1px solid #ececea}
 .lb-row.me{background:#e6f7f1;border-color:#1D9E75}
 .lb-name{flex:1;font-size:14px;font-weight:500;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lb-pts{font-size:13px;font-weight:700;color:#1D9E75;white-space:nowrap}
-.lb-bar-bg{width:72px;height:5px;background:#e0e0de;border-radius:3px;overflow:hidden;flex-shrink:0}
+.lb-stat{font-size:11px;color:#888;white-space:nowrap;flex-shrink:0}
+.lb-bar-bg{width:60px;height:5px;background:#e0e0de;border-radius:3px;overflow:hidden;flex-shrink:0}
 .lb-bar-fill{height:100%;background:#1D9E75;border-radius:3px}
 .sec{font-size:11px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px}
 .hr{border:none;border-top:1px solid #e8e8e6;margin:1rem 0}
 .av{border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#fff;flex-shrink:0}
 .chip{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:3px 9px;font-size:12px;margin:3px;border:1px solid}
 .pulse{animation:pulse 1.8s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.45}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
 .badge-live{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#16a34a;background:#dcfce7;border:1px solid #bbf7d0;border-radius:20px;padding:3px 10px}
 .badge-live::before{content:'';width:7px;height:7px;border-radius:50%;background:#16a34a;animation:pulse 1.2s infinite}
+.notice{padding:0.75rem 1rem;border-radius:9px;font-size:13px;line-height:1.55}
+.notice-blue{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af}
+.notice-green{background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d}
+.notice-red{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
 @media(max-width:500px){.wrap{max-width:100%}.page{padding:0.75rem}}
 </style>
 </head>
@@ -62,174 +66,209 @@ input[type=text]:focus{outline:none;border-color:#1D9E75;box-shadow:0 0 0 3px #1
 <div class="page"><div class="wrap" id="root"></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-// ─── CONFIG ──────────────────────────────────────────────
+// ════════════════════════════════════════════════════════
+//  HOW MULTIPLAYER WORKS
+//  We use JSONBin.io as a free shared state store.
+//  The HOST creates a bin (gets a BIN_ID), shares the URL
+//  with that BIN_ID as a query param so all devices read/
+//  write the same game state.
+//  URL format: https://yoursite.com/?bin=BIN_ID&role=player
+// ════════════════════════════════════════════════════════
+
+const JSONBIN_BASE = 'https://api.jsonbin.io/v3';
+const JSONBIN_KEY  = '$2a$10$placeholder'; // replaced at bin-create time with real key
 const Q_TIME = 20;
+const POLL_MS = 2000;
 const ADMIN_PIN = '1234';
-const QUESTIONS = [
-  {
-    topic:"Ephemeral Accounts",
-    q:"What is the primary security benefit of PAM360's Ephemeral Account Provisioning?",
-    opts:["Encrypts existing privileged accounts using AES-256","Eliminates persistent privileged accounts with time-bound, on-demand accounts","Allows bulk import of service accounts from Active Directory","Enables MFA for all privileged users"],
-    answer:1,
-    explain:"Ephemeral accounts are time-bound and provisioned on demand — they are automatically deprovisioned after use, eliminating persistent accounts and reducing credential misuse via just-in-time access."
-  },
-  {
-    topic:"Ephemeral Accounts",
-    q:"Which access principle does Ephemeral Account Provisioning implement to reduce credential misuse?",
-    opts:["Zero-trust network access","Separation of duties","Just-in-time (JIT) access","Least privilege enforcement"],
-    answer:2,
-    explain:"Just-in-time (JIT) access means accounts are only created when needed and automatically removed after the session ends."
-  },
-  {
-    topic:"AI Integration",
-    q:"Which AI platform is NOT listed among PAM360's newly supported cloud AI integrations?",
-    opts:["Microsoft Azure OpenAI Service","DeepSeek","IBM Watson","Anthropic"],
-    answer:2,
-    explain:"PAM360 now supports Microsoft Azure OpenAI Service, Anthropic, Google AI, DeepSeek, and SiliconFlow. IBM Watson is not included."
-  },
-  {
-    topic:"AI Integration",
-    q:"What two capabilities benefit most from PAM360's expanded cloud AI integrations?",
-    opts:["Password rotation and credential discovery","Session analysis and CIEM policy recommendations","Threat intelligence and vulnerability scanning","User provisioning and access certification"],
-    answer:1,
-    explain:"The AI integrations are specifically used for session analysis and Cloud Infrastructure Entitlement Management (CIEM) policy recommendations."
-  },
-  {
-    topic:"AI Integration",
-    q:"Does PAM360 support connecting to self-hosted / local LLMs over HTTP?",
-    opts:["Yes — both HTTP and HTTPS are supported","Yes — HTTP is allowed for internal network LLMs","No — PAM360 only supports HTTPS connections, even for local LLMs","No — PAM360 does not support self-hosted LLMs at all"],
-    answer:2,
-    explain:"PAM360 supports self-hosted LLMs (Phi-3, Mistral, LLaMA, Qwen etc.) but requires HTTPS connections only — HTTP is not supported."
-  },
-  {
-    topic:"Session Management",
-    q:"What does the new remote audio input redirection in RDP sessions allow users to do?",
-    opts:["Record remote machine audio to a local file","Use their local microphone as an input device inside the remote machine","Stream audio from the remote machine to local speakers","Enable text-to-speech during SSH sessions"],
-    answer:1,
-    explain:"Remote audio input redirection lets users use their local microphone as an input device within the remote RDP machine — it's input, not output."
-  },
-  {
-    topic:"Session Management",
-    q:"What is the primary purpose of the new role-based privilege to control deletion of session recordings?",
-    opts:["Reduce storage costs by automating old recording deletion","Allow end-users to manage their own session history","Strengthen audit integrity and compliance by restricting who can delete recordings","Enable real-time monitoring of active RDP sessions"],
-    answer:2,
-    explain:"Administrators can restrict users from deleting recorded sessions, which strengthens audit integrity and compliance."
-  },
-  {
-    topic:"Security Enhancement",
-    q:"Why was the Cewolf library removed from PAM360, and what is the impact?",
-    opts:["It caused performance issues — dashboards now load faster","It reached End-of-Life (EOL) status; visual charts are removed from reports but all data remains available","It was replaced by a newer charting library with better visuals","It conflicted with the JasperReports upgrade and both were removed"],
-    answer:1,
-    explain:"Cewolf was removed due to EOL status and security compliance requirements. Reports no longer show visual charts, but all underlying report data is still accessible."
-  },
-  {
-    topic:"Remote Connect",
-    q:"In PAM360 Remote Connect 5.1, which credentials can now be used to initiate RDP and SSH connections?",
-    opts:["API tokens and service account passwords","Certificate-based credentials only","The user's logged-in AD / Entra ID / LDAP credentials","One-time passwords generated by PAM360"],
-    answer:2,
-    explain:"Remote Connect 5.1 lets users initiate RDP and SSH connections using their currently logged-in AD, Entra ID, or LDAP credentials."
-  },
-  {
-    topic:"Remote Connect",
-    q:"In SSH proxy environments, what must a user provide to connect to resources requiring ticket ID-based approval?",
-    opts:["A biometric verification token","A valid ticket ID","A one-time password from their authenticator app","An admin-approved session certificate"],
-    answer:1,
-    explain:"Users can now initiate remote connections to resources requiring ticket ID-based approval by providing a valid ticket ID during the connection."
-  }
-];
 
 const COLORS=['#3B82F6','#EF4444','#10B981','#8B5CF6','#F59E0B','#EC4899','#06B6D4','#F97316','#6366F1','#14B8A6','#84CC16','#E11D48'];
 
-// ─── STATE ───────────────────────────────────────────────
-let G = {
-  view: 'landing',
-  role: null,
-  pin: '',
-  // Game
-  phase: 'lobby',   // lobby | question | reveal | leaderboard | finished
-  currentQ: -1,
-  players: {},      // { name: { score, answers:{qIdx:{choice,correct,pts,time}}, color } }
-  timerVal: Q_TIME,
-  timerInterval: null,
-  // Admin join flow
-  joinName: '',
-  // Participant join flow
-  nickname: '',
-  myAnswers: {},    // { qIdx: choiceIndex }
-  // QR
-  joinUrl: window.location.href
-};
+const QUESTIONS=[
+  {topic:"Ephemeral Accounts",q:"What is the primary security benefit of PAM360's Ephemeral Account Provisioning?",opts:["Encrypts existing privileged accounts using AES-256","Eliminates persistent privileged accounts with time-bound, on-demand accounts","Allows bulk import of service accounts from Active Directory","Enables MFA for all privileged users"],answer:1,explain:"Ephemeral accounts are time-bound and provisioned on demand — automatically deprovisioned after use, eliminating persistent accounts and reducing credential misuse via just-in-time access."},
+  {topic:"Ephemeral Accounts",q:"Which access principle does Ephemeral Account Provisioning implement to reduce credential misuse?",opts:["Zero-trust network access","Separation of duties","Just-in-time (JIT) access","Least privilege enforcement"],answer:2,explain:"Just-in-time (JIT) access means accounts are only created when needed and automatically removed after the session ends."},
+  {topic:"AI Integration",q:"Which AI platform is NOT listed among PAM360's newly supported cloud AI integrations?",opts:["Microsoft Azure OpenAI Service","DeepSeek","IBM Watson","Anthropic"],answer:2,explain:"PAM360 now supports Microsoft Azure OpenAI Service, Anthropic, Google AI, DeepSeek, and SiliconFlow. IBM Watson is not included."},
+  {topic:"AI Integration",q:"What two capabilities benefit most from PAM360's expanded cloud AI integrations?",opts:["Password rotation and credential discovery","Session analysis and CIEM policy recommendations","Threat intelligence and vulnerability scanning","User provisioning and access certification"],answer:1,explain:"The AI integrations are specifically used for session analysis and Cloud Infrastructure Entitlement Management (CIEM) policy recommendations."},
+  {topic:"AI Integration",q:"Does PAM360 support connecting to self-hosted / local LLMs over HTTP?",opts:["Yes — both HTTP and HTTPS are supported","Yes — HTTP is allowed for internal network LLMs","No — PAM360 only supports HTTPS connections, even for local LLMs","No — PAM360 does not support self-hosted LLMs at all"],answer:2,explain:"PAM360 supports self-hosted LLMs (Phi-3, Mistral, LLaMA, Qwen etc.) but requires HTTPS connections only — HTTP is not supported."},
+  {topic:"Session Management",q:"What does the new remote audio input redirection in RDP sessions allow users to do?",opts:["Record remote machine audio to a local file","Use their local microphone as an input device inside the remote machine","Stream audio from the remote machine to local speakers","Enable text-to-speech during SSH sessions"],answer:1,explain:"Remote audio input redirection lets users use their local microphone as an input device within the remote RDP machine."},
+  {topic:"Session Management",q:"What is the primary purpose of the new role-based privilege to control deletion of session recordings?",opts:["Reduce storage costs by automating old recording deletion","Allow end-users to manage their own session history","Strengthen audit integrity and compliance by restricting who can delete recordings","Enable real-time monitoring of active RDP sessions"],answer:2,explain:"Administrators can restrict users from deleting recorded sessions, which strengthens audit integrity and compliance."},
+  {topic:"Security Enhancement",q:"Why was the Cewolf library removed from PAM360, and what is the impact?",opts:["It caused performance issues — dashboards now load faster","It reached End-of-Life (EOL); visual charts are removed from reports but all data remains available","It was replaced by a newer charting library with better visuals","It conflicted with the JasperReports upgrade"],answer:1,explain:"Cewolf was removed due to EOL status and security compliance. Reports no longer show visual charts, but all underlying data is still accessible."},
+  {topic:"Remote Connect",q:"In PAM360 Remote Connect 5.1, which credentials can now be used to initiate RDP and SSH connections?",opts:["API tokens and service account passwords","Certificate-based credentials only","The user's logged-in AD / Entra ID / LDAP credentials","One-time passwords generated by PAM360"],answer:2,explain:"Remote Connect 5.1 lets users initiate RDP and SSH connections using their currently logged-in AD, Entra ID, or LDAP credentials."},
+  {topic:"Remote Connect",q:"In SSH proxy environments, what must a user provide to connect to resources requiring ticket ID-based approval?",opts:["A biometric verification token","A valid ticket ID","A one-time password from their authenticator app","An admin-approved session certificate"],answer:1,explain:"Users can now initiate remote connections to resources requiring ticket ID-based approval by providing a valid ticket ID."}
+];
 
-// ─── HELPERS ─────────────────────────────────────────────
+// ── helpers ──────────────────────────────────────────────
 function gc(n){let h=0;for(let c of n)h=(h*37+c.charCodeAt(0))%COLORS.length;return COLORS[h]}
-function ini(n){return n.trim().split(/\s+/).map(w=>w[0]||'').join('').toUpperCase().slice(0,2)||'?'}
-function av(name,sz,fs,extra=''){
-  return`<div class="av" style="width:${sz}px;height:${sz}px;min-width:${sz}px;background:${gc(name)};font-size:${fs}px${extra?';'+extra:''}">${ini(name)}</div>`
+function ini(n){return(n||'?').trim().split(/\s+/).map(w=>w[0]||'').join('').toUpperCase().slice(0,2)||'?'}
+function av(name,sz,fs){return`<div class="av" style="width:${sz}px;height:${sz}px;min-width:${sz}px;background:${gc(name)};font-size:${fs}px">${ini(name)}</div>`}
+function set(h){document.getElementById('root').innerHTML=h}
+function go(v){V=v;render()}
+function qs(k){return new URLSearchParams(location.search).get(k)||''}
+function lbRows(players){
+  return Object.entries(players||{})
+    .sort((a,b)=>b[1].score-a[1].score)
+    .map(([n,d],i)=>{
+      const answered=Object.keys(d.answers||{}).length;
+      const correct=Object.values(d.answers||{}).filter(a=>a.correct).length;
+      return{rank:i+1,name:n,answered,correct,...d};
+    });
 }
-function lbData(){
-  return Object.entries(G.players).sort((a,b)=>b[1].score-a[1].score).map(([n,d],i)=>{
-    const answered = Object.values(d.answers||{}).length;
-    const correct = Object.values(d.answers||{}).filter(a=>a.correct).length;
-    return {rank:i+1, name:n, answered, correct, ...d};
+
+// ── state ────────────────────────────────────────────────
+let V='landing';          // current view
+let BIN_ID=qs('bin');     // JSONBin bin ID (shared across devices)
+let ROLE=qs('role');      // 'player' if URL has ?role=player
+let MY_NAME='';           // this participant's nickname
+let MY_ANSWERS={};        // local answers {qIdx: choiceIdx}
+let pollTimer=null;
+let timerInterval=null;
+let timerVal=Q_TIME;
+let lastPhase='';
+let lastQ=-1;
+let GS=null;              // latest game state from server
+
+// default game state shape
+function freshState(){
+  return{phase:'lobby',currentQ:-1,timerStart:null,players:{},rev:0};
+}
+
+// ── JSONBin API ───────────────────────────────────────────
+async function binCreate(){
+  // Creates a new bin with fresh state; returns bin ID
+  const r=await fetch(`${JSONBIN_BASE}/b`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','X-Bin-Private':'false'},
+    body:JSON.stringify(freshState())
+  });
+  const j=await r.json();
+  return j.metadata?.id||null;
+}
+
+async function binRead(id){
+  const r=await fetch(`${JSONBIN_BASE}/b/${id}/latest`,{cache:'no-store'});
+  const j=await r.json();
+  return j.record||null;
+}
+
+async function binWrite(id,data){
+  await fetch(`${JSONBIN_BASE}/b/${id}`,{
+    method:'PUT',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(data)
   });
 }
-function set(h){document.getElementById('root').innerHTML=h}
-function go(v){G.view=v;render()}
 
-// ─── TIMER ───────────────────────────────────────────────
-function startTimer(onZero){
-  clearInterval(G.timerInterval);
-  G.timerVal = Q_TIME;
-  G.timerInterval = setInterval(()=>{
-    G.timerVal--;
-    refreshTimerEl();
-    if(G.timerVal<=0){clearInterval(G.timerInterval);onZero&&onZero();}
+// ── polling ───────────────────────────────────────────────
+function startPoll(){
+  stopPoll();
+  pollTimer=setInterval(async()=>{
+    if(!BIN_ID)return;
+    try{
+      const s=await binRead(BIN_ID);
+      if(!s)return;
+      GS=s;
+      syncView(s);
+    }catch(e){}
+  },POLL_MS);
+}
+
+function stopPoll(){clearInterval(pollTimer);pollTimer=null;}
+
+function syncView(s){
+  // participant view follows server phase
+  if(ROLE==='player'){
+    const phase=s.phase;
+    if(phase==='lobby'&&V!=='lobby'){go('lobby');return;}
+    if(phase==='question'&&(V==='lobby'||V==='reveal'||V==='leaderboard')){lastQ=s.currentQ;go('question');return;}
+    if(phase==='reveal'&&V==='question'){go('reveal');return;}
+    if(phase==='leaderboard'&&V!=='leaderboard'&&V!=='finished'){go('leaderboard');return;}
+    if(phase==='finished'&&V!=='finished'){go('finished');return;}
+    // same phase but new question
+    if(phase==='question'&&s.currentQ!==lastQ){lastQ=s.currentQ;go('question');return;}
+  }
+  // admin: refresh player count in lobby silently
+  if(ROLE==='admin'&&V==='adminLobby'){
+    const count=Object.keys(s.players||{}).length;
+    const el=document.getElementById('player-count');
+    const chips=document.getElementById('player-chips');
+    if(el)el.textContent=count;
+    if(chips)chips.innerHTML=count===0
+      ?'<p style="font-size:13px;color:#bbb">No players yet — share the link!</p>'
+      :renderChips(s.players);
+    const startBtn=document.getElementById('start-btn');
+    if(startBtn)startBtn.textContent=`▶  Start quiz${count>0?' ('+count+' player'+(count!==1?'s':')+')':''}`;
+  }
+  // update timer display
+  if((V==='question'||V==='adminQuestion')&&s.timerStart){
+    const elapsed=Math.floor((Date.now()-s.timerStart)/1000);
+    timerVal=Math.max(0,Q_TIME-elapsed);
+    const el=document.getElementById('timer-el');
+    if(el){el.textContent=timerVal;el.className=`timer${timerVal<=5?' timer-danger':timerVal<=10?' timer-warn':''}`;}
+    if(timerVal<=0&&ROLE==='admin'){adminReveal();}
+    if(timerVal<=0&&ROLE==='player'&&V==='question'){go('reveal');}
+  }
+  // refresh LB rows live
+  if(V==='adminLeaderboard'||V==='leaderboard'){renderLBRows(s.players);}
+}
+
+// ── local timer (admin only) ─────────────────────────────
+function startLocalTimer(){
+  clearInterval(timerInterval);
+  timerVal=Q_TIME;
+  timerInterval=setInterval(()=>{
+    timerVal--;
+    const el=document.getElementById('timer-el');
+    if(el){el.textContent=timerVal;el.className=`timer${timerVal<=5?' timer-danger':timerVal<=10?' timer-warn':''}`;}
+    // update answer count
+    if(GS){
+      const ac=Object.values(GS.players||{}).filter(p=>p.answers&&p.answers[GS.currentQ]!==undefined).length;
+      const tot=Object.keys(GS.players||{}).length;
+      const acEl=document.getElementById('ac');const rrEl=document.getElementById('rr');
+      if(acEl)acEl.textContent=ac;
+      if(rrEl)rrEl.textContent=(tot>0?Math.round(ac/tot*100):0)+'%';
+    }
+    if(timerVal<=0){clearInterval(timerInterval);adminReveal();}
   },1000);
 }
-function stopTimer(){clearInterval(G.timerInterval);}
-function refreshTimerEl(){
-  const el=document.getElementById('timer-el');
-  if(!el)return;
-  el.textContent=G.timerVal;
-  el.className=`timer${G.timerVal<=5?' timer-danger':G.timerVal<=10?' timer-warn':''}`;
-}
 
-// ─── RENDER DISPATCH ─────────────────────────────────────
+// ═══════════════════════════════════════════════════════
+//  VIEWS
+// ═══════════════════════════════════════════════════════
+
 function render(){
   ({
-    landing:rLanding, adminPin:rAdminPin, qr:rQR,
-    adminLobby:rAdminLobby, adminQuestion:rAdminQuestion,
-    adminReveal:rAdminReveal, adminLeaderboard:rAdminLB, adminFinished:rAdminFinished,
-    join:rJoin, lobby:rLobby, question:rQuestion,
-    reveal:rReveal, leaderboard:rLB, finished:rFinished
-  }[G.view]||rLanding)();
+    landing:rLanding,setup:rSetup,adminPin:rAdminPin,qr:rQR,
+    adminLobby:rAdminLobby,adminQuestion:rAdminQuestion,
+    adminReveal:rAdminReveal,adminLeaderboard:rAdminLB,adminFinished:rAdminFinished,
+    join:rJoin,lobby:rLobby,question:rQuestion,reveal:rReveal,
+    leaderboard:rLB,finished:rFinished
+  }[V]||rLanding)();
 }
 
-// ─────────────────────────────────────────────────────────
-// LANDING
-// ─────────────────────────────────────────────────────────
+// ── LANDING ──────────────────────────────────────────────
 function rLanding(){
+  // Auto-route if URL has params
+  if(BIN_ID&&ROLE==='player'){go('join');return;}
+  if(BIN_ID&&!ROLE){go('adminPin');return;}
+
   set(`<div style="text-align:center;padding:2.5rem 1rem 2rem">
     <div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">ManageEngine PAM360</div>
     <h1 style="font-size:26px;font-weight:700;margin-bottom:6px">Build 8540 · Live Quiz</h1>
     <p style="font-size:14px;color:#666;margin-bottom:2rem">${QUESTIONS.length} questions &nbsp;·&nbsp; ${Q_TIME}s timer &nbsp;·&nbsp; live leaderboard</p>
-    <div style="display:flex;flex-direction:column;gap:10px;max-width:272px;margin:0 auto">
+    <div style="display:flex;flex-direction:column;gap:10px;max-width:270px;margin:0 auto">
+      <button class="btn btn-blue" style="justify-content:center;padding:0.8rem;font-weight:600" onclick="go('adminPin')">&#9881;&nbsp; I am the Host</button>
       <button class="btn btn-green" style="justify-content:center;padding:0.8rem;font-size:15px;font-weight:600" onclick="go('join')">&#128100;&nbsp; Join as participant</button>
-      <button class="btn btn-blue" style="justify-content:center;padding:0.8rem;font-weight:600" onclick="go('adminPin')">&#9881;&nbsp; Host / Admin panel</button>
-      <button class="btn" style="justify-content:center;padding:0.8rem" onclick="go('qr')">&#9638;&nbsp; Show join QR code</button>
+      <button class="btn" style="justify-content:center;padding:0.8rem" onclick="go('qr')">&#9638;&nbsp; Show QR code</button>
     </div>
-    <p style="font-size:12px;color:#bbb;margin-top:1.75rem">Admin PIN: <strong style="color:#888">1234</strong></p>
+    <p style="font-size:12px;color:#ccc;margin-top:1.75rem">Host PIN: <strong style="color:#999">1234</strong></p>
   </div>`);
 }
 
-// ─────────────────────────────────────────────────────────
-// ADMIN PIN
-// ─────────────────────────────────────────────────────────
+// ── ADMIN PIN ────────────────────────────────────────────
 function rAdminPin(){
-  set(`<div style="max-width:320px;margin:2.5rem auto">
+  set(`<div style="max-width:340px;margin:2.5rem auto">
     <div class="card">
-      <p style="font-size:16px;font-weight:700;margin-bottom:4px">Admin access</p>
-      <p style="font-size:13px;color:#888;margin-bottom:1rem">Enter the host PIN to manage the quiz.</p>
+      <p style="font-size:16px;font-weight:700;margin-bottom:4px">Host access</p>
+      <p style="font-size:13px;color:#888;margin-bottom:1rem">Enter the PIN to open the host panel.</p>
       <input type="text" id="pin" placeholder="Enter PIN" maxlength="8" style="margin-bottom:8px" />
       <div id="pin-err" style="font-size:12px;color:#dc2626;min-height:16px;margin-bottom:8px"></div>
       <div style="display:flex;gap:8px">
@@ -238,19 +277,35 @@ function rAdminPin(){
       </div>
     </div>
   </div>`);
-  const el=document.getElementById('pin');
-  el.focus();
+  const el=document.getElementById('pin');el.focus();
   el.addEventListener('keydown',e=>{if(e.key==='Enter')doPin();});
 }
-function doPin(){
-  if(document.getElementById('pin').value===ADMIN_PIN){G.role='admin';go('adminLobby');}
-  else document.getElementById('pin-err').textContent='Incorrect PIN. Try again.';
+async function doPin(){
+  if(document.getElementById('pin').value!==ADMIN_PIN){
+    document.getElementById('pin-err').textContent='Incorrect PIN.';return;
+  }
+  ROLE='admin';
+  // If no BIN_ID yet, create one
+  if(!BIN_ID){
+    document.getElementById('pin-err').style.color='#666';
+    document.getElementById('pin-err').textContent='Setting up quiz room...';
+    BIN_ID=await binCreate();
+    if(!BIN_ID){document.getElementById('pin-err').style.color='#dc2626';document.getElementById('pin-err').textContent='Could not create quiz room. Check internet connection.';return;}
+    // Update URL so QR code works
+    const url=new URL(location.href);
+    url.searchParams.set('bin',BIN_ID);
+    history.replaceState({},'',url);
+  }
+  GS=await binRead(BIN_ID)||freshState();
+  startPoll();
+  go('adminLobby');
 }
 
-// ─────────────────────────────────────────────────────────
-// QR PAGE
-// ─────────────────────────────────────────────────────────
+// ── QR PAGE ──────────────────────────────────────────────
 function rQR(){
+  const joinUrl=BIN_ID
+    ? `${location.origin}${location.pathname}?bin=${BIN_ID}&role=player`
+    : location.href;
   set(`<div>
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem">
       <button class="btn" onclick="go('landing')" style="padding:0.4rem 0.8rem">&#8592;</button>
@@ -261,272 +316,278 @@ function rQR(){
         <div style="background:#fff;padding:10px;border-radius:10px;border:1px solid #e0e0de;display:inline-block" id="qr-el"></div>
         <p style="font-size:11px;color:#aaa;text-align:center;margin-top:6px">Scan to join</p>
       </div>
-      <div style="flex:1;min-width:190px">
-        <p class="sec">Quiz URL</p>
-        <input type="text" id="qr-url" value="${G.joinUrl}" style="margin-bottom:8px;font-size:13px" />
-        <button class="btn btn-green" onclick="updateQR()" style="width:100%;justify-content:center;margin-bottom:1rem">&#8635; Update QR</button>
+      <div style="flex:1;min-width:180px">
+        <p class="sec">Participant link</p>
+        <input type="text" id="qr-url" value="${joinUrl}" style="font-size:12px;margin-bottom:8px" readonly />
+        ${!BIN_ID?`<div class="notice notice-blue" style="margin-bottom:8px">&#8505; Open the Host panel first to generate the join link.</div>`:''}
         <div class="hr"></div>
-        <p class="sec">How to join</p>
-        <p style="font-size:13px;color:#555;line-height:1.85">Participants open the URL on any device, tap <strong>"Join as participant"</strong>, enter their nickname — they appear in the lobby instantly.</p>
+        <p class="sec">How participants join</p>
+        <p style="font-size:13px;color:#555;line-height:1.85">They scan the QR or open the link, enter their nickname and they appear in your lobby instantly.</p>
       </div>
     </div>
     <div style="margin-top:1rem;display:flex;gap:8px">
       <button class="btn btn-blue" onclick="go('adminPin')">&#9881; Host panel</button>
-      <button class="btn" onclick="go('join')">&#128100; Join</button>
+      <button class="btn btn-green" onclick="go('join')">&#128100; Join</button>
     </div>
   </div>`);
-  setTimeout(()=>doQR(G.joinUrl),80);
-}
-function doQR(url){
-  const el=document.getElementById('qr-el');
-  if(!el)return;
-  el.innerHTML='';
-  try{new QRCode(el,{text:url,width:160,height:160,colorDark:'#111',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});}
-  catch(e){el.innerHTML='<div style="width:160px;height:160px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#888;text-align:center;padding:1rem">Paste URL &amp; click Update QR</div>';}
-}
-function updateQR(){
-  const v=document.getElementById('qr-url')?.value?.trim();
-  if(v){G.joinUrl=v;doQR(v);}
+  setTimeout(()=>{
+    const el=document.getElementById('qr-el');
+    if(!el)return;
+    try{new QRCode(el,{text:joinUrl,width:160,height:160,colorDark:'#111',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});}
+    catch(e){el.textContent='Open host panel first to generate QR';}
+  },80);
 }
 
-// ─────────────────────────────────────────────────────────
-// ADMIN LOBBY
-// ─────────────────────────────────────────────────────────
+// ── ADMIN LOBBY ──────────────────────────────────────────
 function rAdminLobby(){
-  const count=Object.keys(G.players).length;
+  const players=GS?.players||{};
+  const count=Object.keys(players).length;
+  const joinUrl=`${location.origin}${location.pathname}?bin=${BIN_ID}&role=player`;
   set(`<div>
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem">
       <div>
         <h2 style="font-size:20px;font-weight:700">Host panel</h2>
         <div style="margin-top:4px"><span class="badge-live">Lobby open</span></div>
       </div>
-      <button class="btn" onclick="go('qr')" style="font-size:12px">&#9638; QR</button>
+      <button class="btn" onclick="go('qr')" style="font-size:12px">&#9638; QR code</button>
+    </div>
+
+    <div class="notice notice-blue" style="margin-bottom:1rem;font-size:12px">
+      &#128279; Share this link with participants:&nbsp;
+      <strong style="word-break:break-all">${joinUrl}</strong>
     </div>
 
     <div class="card" style="margin-bottom:1rem">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-        <p class="sec" style="margin-bottom:0">Players joined (${count})</p>
-        <button class="btn" onclick="adminAddDemo()" style="font-size:11px;padding:3px 8px">+ Demo players</button>
+        <p class="sec" style="margin-bottom:0">Players joined (<span id="player-count">${count}</span>)</p>
+        <button class="btn" onclick="adminAddDemo()" style="font-size:11px;padding:3px 8px">+ Demo</button>
       </div>
-      <div style="display:flex;flex-wrap:wrap;gap:4px;min-height:32px">
+      <div id="player-chips" style="display:flex;flex-wrap:wrap;gap:4px;min-height:32px">
         ${count===0
-          ? '<p style="font-size:13px;color:#bbb;padding:4px 0">No players yet — share the QR code or link so participants can join from their own devices.</p>'
-          : renderChips()}
+          ? '<p style="font-size:13px;color:#bbb">No players yet — share the link above!</p>'
+          : renderChips(players)}
       </div>
     </div>
 
-    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-      <button class="btn btn-green" style="font-size:15px;font-weight:600;padding:0.7rem 1.5rem" onclick="adminStart()">
-        &#9654;&nbsp; Start quiz${count>0?' ('+count+' player'+(count!==1?'s':'')+')':''}
-      </button>
-      <span style="font-size:12px;color:#aaa">${count===0?'Players can still join after you start':'Ready to go!'}</span>
-    </div>
+    <button id="start-btn" class="btn btn-green" style="font-size:15px;font-weight:600;padding:0.75rem 1.5rem" onclick="adminStart()">
+      &#9654;&nbsp; Start quiz${count>0?' ('+count+' player'+(count!==1?'s':'')+')':''}
+    </button>
+    <p style="font-size:12px;color:#aaa;margin-top:8px">Players can join even after the quiz starts.</p>
   </div>`);
 }
 
-function renderChips(){
-  return Object.keys(G.players).map(name=>`
-    <div class="chip" style="background:${gc(name)}18;border-color:${gc(name)}55;color:#333">
-      ${av(name,16,8,'vertical-align:middle')}
-      <span style="margin-left:3px">${name}</span>
+function renderChips(players){
+  return Object.keys(players).map(n=>`
+    <div class="chip" style="background:${gc(n)}18;border-color:${gc(n)}55;color:#333">
+      ${av(n,16,8)}<span style="margin-left:3px">${n}</span>
     </div>`).join('');
 }
 
+async function adminStart(){
+  const s=GS||freshState();
+  s.phase='question';
+  s.currentQ=0;
+  s.timerStart=Date.now();
+  await binWrite(BIN_ID,s);
+  GS=s;
+  go('adminQuestion');
+  startLocalTimer();
+}
 
-function adminAddDemo(){
-  ['Priya_K','DevOps_Sam','SecLead_Jo','CloudArch','SysAdmin99','PenTester','NetOps_Al','IAM_Expert','Infra_Dan','ReleaseBot'].forEach(n=>{
-    if(!G.players[n])G.players[n]={score:0,answers:{},color:gc(n)};
+async function adminAddDemo(){
+  const s=GS||freshState();
+  ['Priya_K','DevOps_Sam','SecLead_Jo','CloudArch','SysAdmin99','PenTester','NetOps_Al','IAM_Expert'].forEach(n=>{
+    if(!s.players[n])s.players[n]={score:0,answers:{}};
   });
+  await binWrite(BIN_ID,s);
+  GS=s;
   rAdminLobby();
 }
 
-function adminStart(){
-  if(Object.keys(G.players).length===0)return;
-  G.phase='question';
-  G.currentQ=0;
-  go('adminQuestion');
-  startTimer(()=>{stopTimer();go('adminReveal');});
-}
-
-// ─────────────────────────────────────────────────────────
-// ADMIN QUESTION
-// ─────────────────────────────────────────────────────────
+// ── ADMIN QUESTION ───────────────────────────────────────
 function rAdminQuestion(){
-  const q=QUESTIONS[G.currentQ];
-  const count=Object.keys(G.players).length;
+  const s=GS||freshState();
+  const q=QUESTIONS[s.currentQ];
+  const count=Object.keys(s.players||{}).length;
+  const ac=Object.values(s.players||{}).filter(p=>p.answers&&p.answers[s.currentQ]!==undefined).length;
   set(`<div>
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem">
       <div style="display:flex;align-items:center;gap:8px">
         <span class="tag tag-blue">${q.topic}</span>
-        <span style="font-size:12px;color:#888;font-weight:500">Q${G.currentQ+1} / ${QUESTIONS.length}</span>
+        <span style="font-size:12px;color:#888">Q${s.currentQ+1}/${QUESTIONS.length}</span>
       </div>
-      <div class="timer${G.timerVal<=5?' timer-danger':G.timerVal<=10?' timer-warn':''}" id="timer-el">${G.timerVal}</div>
+      <div class="timer" id="timer-el">${timerVal}</div>
     </div>
-    <div class="prog-bg"><div class="prog-fill" style="width:${Math.round(G.currentQ/QUESTIONS.length*100)}%"></div></div>
+    <div class="prog-bg"><div class="prog-fill" style="width:${Math.round(s.currentQ/QUESTIONS.length*100)}%"></div></div>
     <div class="card" style="margin-bottom:1rem">
-      <p style="font-size:17px;font-weight:700;line-height:1.5;margin-bottom:1.1rem">${q.q}</p>
-      ${q.opts.map((o,i)=>`<button class="opt" disabled style="opacity:0.85">
-        <span style="font-weight:700;color:#aaa;margin-right:8px">${String.fromCharCode(65+i)}.</span>${o}
+      <p style="font-size:17px;font-weight:700;line-height:1.5;margin-bottom:1rem">${q.q}</p>
+      ${q.opts.map((o,i)=>`<button class="opt" disabled style="opacity:0.8">
+        <span style="font-weight:700;color:#bbb;margin-right:8px">${String.fromCharCode(65+i)}.</span>${o}
       </button>`).join('')}
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1rem">
+      <div class="metric"><div class="metric-val" id="ac">${ac}</div><div class="metric-lbl">Answered</div></div>
+      <div class="metric"><div class="metric-val" id="rr">${count>0?Math.round(ac/count*100):0}%</div><div class="metric-lbl">Response rate</div></div>
       <div class="metric"><div class="metric-val">${count}</div><div class="metric-lbl">Players</div></div>
-      <div class="metric"><div class="metric-val">${Q_TIME}s</div><div class="metric-lbl">Timer</div></div>
-      <div class="metric"><div class="metric-val">${G.currentQ+1}/${QUESTIONS.length}</div><div class="metric-lbl">Progress</div></div>
     </div>
     <div style="display:flex;gap:8px">
       <button class="btn btn-green" onclick="adminReveal()">&#128065;&nbsp; Reveal answer</button>
       <button class="btn btn-red" onclick="adminEnd()" style="margin-left:auto">End quiz</button>
     </div>
   </div>`);
+  startLocalTimer();
 }
 
-function adminReveal(){
-  stopTimer();
-  G.phase='reveal';
+async function adminReveal(){
+  clearInterval(timerInterval);
+  const s=GS||freshState();
+  s.phase='reveal';
+  await binWrite(BIN_ID,s);
+  GS=s;
   go('adminReveal');
 }
 
-// ─────────────────────────────────────────────────────────
-// ADMIN REVEAL
-// ─────────────────────────────────────────────────────────
+// ── ADMIN REVEAL ─────────────────────────────────────────
 function rAdminReveal(){
-  const q=QUESTIONS[G.currentQ];
-  const lb=lbData();
-  const top3=lb.slice(0,3);
+  const s=GS||freshState();
+  const q=QUESTIONS[s.currentQ];
+  const lb=lbRows(s.players).slice(0,3);
   set(`<div>
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem">
       <span class="tag tag-orange">Answer revealed</span>
-      <span style="font-size:12px;color:#888">Q${G.currentQ+1} / ${QUESTIONS.length}</span>
+      <span style="font-size:12px;color:#888">Q${s.currentQ+1}/${QUESTIONS.length}</span>
     </div>
     <div class="card" style="margin-bottom:1rem">
       <p style="font-size:16px;font-weight:700;line-height:1.5;margin-bottom:1rem">${q.q}</p>
-      ${q.opts.map((o,i)=>`<button class="opt ${i===q.answer?'reveal-correct':''}" disabled>
-        <span style="font-weight:700;color:${i===q.answer?'#14532d':'#aaa'};margin-right:8px">${String.fromCharCode(65+i)}.</span>${o}
-        ${i===q.answer?'&nbsp;&#10003;':''}
+      ${q.opts.map((o,i)=>`<button class="opt${i===q.answer?' correct':''}" disabled>
+        <span style="font-weight:700;color:${i===q.answer?'#14532d':'#bbb'};margin-right:8px">${String.fromCharCode(65+i)}.</span>${o}${i===q.answer?' &nbsp;&#10003;':''}
       </button>`).join('')}
-      <div style="margin-top:0.75rem;padding:0.7rem 0.9rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:13px;color:#14532d;line-height:1.55">
-        <strong>Explanation:</strong> ${q.explain}
+      <div class="notice notice-green" style="margin-top:0.75rem">
+        &#128161; <strong>Why?</strong> ${q.explain}
       </div>
     </div>
     <div style="margin-bottom:1rem">
-      <p class="sec">Top 3 leaderboard</p>
-      ${top3.map((p,i)=>`
-        <div class="lb-row">
-          <span style="font-size:16px;width:26px;text-align:center">${['🥇','🥈','🥉'][i]}</span>
+      <p class="sec">Top players so far</p>
+      ${lb.length===0?'<p style="font-size:13px;color:#aaa">No scores yet.</p>':
+        lb.map((p,i)=>`<div class="lb-row">
+          <span style="font-size:${i<3?18:13}px;width:26px;text-align:center">${['🥇','🥈','🥉'][i]}</span>
           ${av(p.name,30,11)}
           <span class="lb-name">${p.name}</span>
-          <span style="font-size:11px;color:#888;white-space:nowrap">${p.correct||0}/${p.answered||0} ✓</span>
+          <span class="lb-stat">${p.correct||0}/${p.answered||0} ✓</span>
           <span class="lb-pts">${p.score} pts</span>
         </div>`).join('')}
-      ${top3.length===0?'<p style="font-size:13px;color:#aaa">No scores yet.</p>':''}
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn btn-green" style="font-weight:600" onclick="adminNext()">
-        ${G.currentQ+1<QUESTIONS.length?'&#8594;&nbsp;Next question':'&#127881;&nbsp;Show final results'}
+        ${s.currentQ+1<QUESTIONS.length?'&#8594;&nbsp;Next question':'&#127881;&nbsp;Final results'}
       </button>
-      <button class="btn" onclick="adminShowLB()">&#9733;&nbsp; Full leaderboard</button>
-      <button class="btn btn-red" onclick="adminEnd()" style="margin-left:auto">End quiz</button>
+      <button class="btn" onclick="go('adminLeaderboard')">&#9733;&nbsp; Full leaderboard</button>
+      <button class="btn btn-red" onclick="adminEnd()" style="margin-left:auto">End</button>
     </div>
   </div>`);
 }
 
-function adminNext(){
-  if(G.currentQ+1>=QUESTIONS.length){adminEnd();return;}
-  G.currentQ++;
-  G.phase='question';
+async function adminNext(){
+  const s=GS||freshState();
+  if(s.currentQ+1>=QUESTIONS.length){adminEnd();return;}
+  s.currentQ++;
+  s.phase='question';
+  s.timerStart=Date.now();
+  await binWrite(BIN_ID,s);
+  GS=s;
+  timerVal=Q_TIME;
   go('adminQuestion');
-  startTimer(()=>{stopTimer();go('adminReveal');});
+  startLocalTimer();
 }
 
-function adminShowLB(){go('adminLeaderboard');}
-
-// ─────────────────────────────────────────────────────────
-// ADMIN LEADERBOARD
-// ─────────────────────────────────────────────────────────
-function rAdminLB(){
-  const lb=lbData();
-  const ms=lb[0]?.score||1;
-  set(`<div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
-      <h2 style="font-size:20px;font-weight:700">Leaderboard</h2>
-      <span style="font-size:12px;color:#888">Q${G.currentQ+1}/${QUESTIONS.length}</span>
-    </div>
-    <div id="lb-rows"></div>
-    <div class="hr"></div>
-    <button class="btn btn-green" onclick="go('adminReveal')">&#8592; Back to reveal</button>
-  </div>`);
-  const el=document.getElementById('lb-rows');
-  lb.slice(0,20).forEach((p,i)=>{
-    const r=document.createElement('div');r.className='lb-row';
-    r.innerHTML=`<span style="font-size:${i<3?18:13}px;width:28px;text-align:center">${i===0?'🥇':i===1?'🥈':i===2?'🥉':p.rank}</span>
-      ${av(p.name,32,12)}
-      <span class="lb-name">${p.name}</span>
-      <span style="font-size:11px;color:#888;white-space:nowrap">${p.correct||0}/${p.answered||0} correct</span>
-      <div class="lb-bar-bg"><div class="lb-bar-fill" style="width:${Math.round(p.score/ms*100)}%"></div></div>
-      <span class="lb-pts">${p.score} pts</span>`;
-    el.appendChild(r);
-  });
-}
-
-// ─────────────────────────────────────────────────────────
-// ADMIN FINISHED
-// ─────────────────────────────────────────────────────────
-function adminEnd(){
-  stopTimer();
-  G.phase='finished';
+async function adminEnd(){
+  clearInterval(timerInterval);
+  const s=GS||freshState();
+  s.phase='finished';
+  await binWrite(BIN_ID,s);
+  GS=s;
   go('adminFinished');
 }
 
-function rAdminFinished(){
-  const lb=lbData();
-  const ms=lb[0]?.score||1;
+// ── ADMIN LEADERBOARD ────────────────────────────────────
+function rAdminLB(){
+  const s=GS||freshState();
   set(`<div>
-    <div style="text-align:center;margin-bottom:1.5rem">
-      <div style="font-size:40px;margin-bottom:6px">&#127881;</div>
-      <h1 style="font-size:24px;font-weight:700">Final Results</h1>
-      <p style="font-size:13px;color:#888;margin-top:4px">PAM360 Build 8540 Quiz Complete</p>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+      <h2 style="font-size:20px;font-weight:700">Leaderboard</h2>
+      <span style="font-size:12px;color:#888">Q${(s.currentQ||0)+1}/${QUESTIONS.length}</span>
     </div>
-    ${lb.slice(0,3).map((p,i)=>`
-      <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:12px;margin-bottom:8px;
-        background:${['#FEFCE8','#F8FAFC','#FFF7ED'][i]};
-        border:1.5px solid ${['#FDE047','#CBD5E1','#FDBA74'][i]}">
-        <span style="font-size:26px">${['🥇','🥈','🥉'][i]}</span>
-        ${av(p.name,44,16)}
-        <div style="flex:1">
-          <div style="font-size:16px;font-weight:700">${p.name}</div>
-          <div style="font-size:12px;color:#777;margin-top:2px">${p.score} points</div>
-        </div>
-        <div style="font-size:22px;font-weight:800;color:#1D9E75">${Math.round(p.score/(QUESTIONS.length*500)*100)}%</div>
-      </div>`).join('')}
+    <div id="lb-rows-el"></div>
     <div class="hr"></div>
-    <p class="sec">All participants</p>
-    <div id="lb-full"></div>
-    <div class="hr"></div>
-    <button class="btn btn-blue" onclick="adminReset()">&#8635;&nbsp; New quiz</button>
+    <button class="btn btn-green" onclick="go('adminReveal')">&#8592; Back to reveal</button>
   </div>`);
-  const el=document.getElementById('lb-full');
-  lb.forEach(p=>{
-    const r=document.createElement('div');r.className='lb-row';
-    r.innerHTML=`<span style="font-size:13px;font-weight:700;width:28px;text-align:center;color:#999">${p.rank}</span>
-      ${av(p.name,30,11)}
-      <span class="lb-name">${p.name}</span>
-      <span style="font-size:11px;color:#888;white-space:nowrap">${p.correct||0}/${p.answered||0} correct</span>
+  renderLBRows(s.players);
+}
+
+function renderLBRows(players){
+  const el=document.getElementById('lb-rows-el');
+  if(!el)return;
+  const lb=lbRows(players);
+  const ms=lb[0]?.score||1;
+  el.innerHTML='';
+  lb.slice(0,20).forEach((p,i)=>{
+    const r=document.createElement('div');
+    r.className=`lb-row${p.name===MY_NAME?' me':''}`;
+    r.innerHTML=`<span style="font-size:${i<3?18:13}px;width:28px;text-align:center">${i===0?'🥇':i===1?'🥈':i===2?'🥉':p.rank}</span>
+      ${av(p.name,32,12)}
+      <span class="lb-name">${p.name}${p.name===MY_NAME?' <span style="font-size:11px;color:#1D9E75">(you)</span>':''}</span>
+      <span class="lb-stat">${p.correct||0}/${p.answered||0} correct</span>
       <div class="lb-bar-bg"><div class="lb-bar-fill" style="width:${Math.round(p.score/ms*100)}%"></div></div>
       <span class="lb-pts">${p.score} pts</span>`;
     el.appendChild(r);
   });
 }
 
-function adminReset(){
-  stopTimer();
-  G.players={};G.currentQ=-1;G.phase='lobby';G.timerVal=Q_TIME;
+// ── ADMIN FINISHED ───────────────────────────────────────
+function rAdminFinished(){
+  const s=GS||freshState();
+  const lb=lbRows(s.players);
+  const ms=lb[0]?.score||1;
+  set(`<div>
+    <div style="text-align:center;margin-bottom:1.5rem">
+      <div style="font-size:42px;margin-bottom:6px">&#127881;</div>
+      <h1 style="font-size:24px;font-weight:700">Final Results</h1>
+      <p style="font-size:13px;color:#888;margin-top:4px">PAM360 Build 8540 — ${QUESTIONS.length} questions</p>
+    </div>
+    ${lb.slice(0,3).map((p,i)=>`
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:12px;margin-bottom:8px;
+        background:${['#FEFCE8','#F8FAFC','#FFF7ED'][i]};border:1.5px solid ${['#FDE047','#CBD5E1','#FDBA74'][i]}">
+        <span style="font-size:26px">${['🥇','🥈','🥉'][i]}</span>
+        ${av(p.name,44,15)}
+        <div style="flex:1">
+          <div style="font-size:16px;font-weight:700">${p.name}</div>
+          <div style="font-size:12px;color:#777;margin-top:2px">${p.correct||0}/${QUESTIONS.length} correct &nbsp;·&nbsp; ${p.score} pts</div>
+        </div>
+        <div style="font-size:22px;font-weight:800;color:#1D9E75">${Math.round((p.correct||0)/QUESTIONS.length*100)}%</div>
+      </div>`).join('')}
+    <div class="hr"></div>
+    <p class="sec">All participants</p>
+    <div id="lb-rows-el"></div>
+    <div class="hr"></div>
+    <button class="btn btn-blue" onclick="adminReset()">&#8635;&nbsp; New quiz</button>
+  </div>`);
+  renderLBRows(s.players);
+}
+
+async function adminReset(){
+  clearInterval(timerInterval);
+  const s=freshState();
+  await binWrite(BIN_ID,s);
+  GS=s;
+  timerVal=Q_TIME;
   go('adminLobby');
 }
 
-// ─────────────────────────────────────────────────────────
-// PARTICIPANT JOIN
-// ─────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════
+//  PARTICIPANT VIEWS
+// ═══════════════════════════════════════════════════════
+
+// ── JOIN ─────────────────────────────────────────────────
 function rJoin(){
   set(`<div style="max-width:380px;margin:2rem auto">
     <div class="card">
@@ -535,205 +596,200 @@ function rJoin(){
         <h2 style="font-size:18px;font-weight:700;margin-bottom:4px">Enter your nickname</h2>
         <p style="font-size:13px;color:#888">This is how you'll appear on the leaderboard.</p>
       </div>
-      <input type="text" id="nick" placeholder="e.g. Alex_Dev" maxlength="20" style="margin-bottom:8px;font-size:16px;text-align:center" />
+      ${!BIN_ID?`<div class="notice notice-red" style="margin-bottom:1rem">&#9888; No quiz room found. Ask your host for the correct link.</div>`:''}
+      <input type="text" id="nick" placeholder="e.g. Alex_Dev" maxlength="20" style="margin-bottom:8px;font-size:16px;text-align:center" ${!BIN_ID?'disabled':''} />
       <div id="nick-err" style="font-size:12px;color:#dc2626;min-height:16px;text-align:center;margin-bottom:8px"></div>
-      <button class="btn btn-green" onclick="doJoin()" style="width:100%;justify-content:center;padding:0.8rem;font-size:15px;font-weight:600">Join quiz &rarr;</button>
+      <button class="btn btn-green" onclick="doJoin()" style="width:100%;justify-content:center;padding:0.8rem;font-size:15px;font-weight:600" ${!BIN_ID?'disabled':''}>Join quiz &rarr;</button>
       <button class="btn" onclick="go('landing')" style="width:100%;justify-content:center;margin-top:8px">&#8592; Back</button>
     </div>
   </div>`);
   const el=document.getElementById('nick');
-  el.focus();
-  el.addEventListener('keydown',e=>{if(e.key==='Enter')doJoin();});
+  if(el){el.focus();el.addEventListener('keydown',e=>{if(e.key==='Enter')doJoin();});}
 }
 
-function doJoin(){
+async function doJoin(){
   const name=document.getElementById('nick').value.trim();
   const err=document.getElementById('nick-err');
   if(!name){err.textContent='Please enter a nickname.';return;}
   if(name.length<2){err.textContent='At least 2 characters.';return;}
-  if(G.players[name]){err.textContent='That nickname is already taken.';return;}
-  // Register in game
-  G.players[name]={score:0,answers:{},color:gc(name)};
-  G.nickname=name;
-  G.role='player';
-  G.myAnswers={};
-  // Go to correct view based on game phase
-  if(G.phase==='lobby') go('lobby');
-  else if(G.phase==='question') go('question');
-  else if(G.phase==='reveal') go('reveal');
-  else if(G.phase==='finished') go('finished');
-  else go('lobby');
+  if(!BIN_ID){err.textContent='No quiz room. Get the link from your host.';return;}
+
+  err.textContent='';
+  const btn=document.querySelector('button.btn-green');
+  if(btn){btn.disabled=true;btn.textContent='Joining...';}
+
+  try{
+    const s=await binRead(BIN_ID);
+    if(!s){err.textContent='Could not connect to quiz room.';if(btn){btn.disabled=false;btn.textContent='Join quiz →';}return;}
+    if(s.players[name]){err.textContent='Nickname already taken. Choose another.';if(btn){btn.disabled=false;btn.textContent='Join quiz →';}return;}
+    s.players[name]={score:0,answers:{}};
+    await binWrite(BIN_ID,s);
+    GS=s;
+    MY_NAME=name;
+    MY_ANSWERS={};
+    ROLE='player';
+    startPoll();
+    if(s.phase==='lobby')go('lobby');
+    else if(s.phase==='question'){lastQ=s.currentQ;go('question');}
+    else if(s.phase==='reveal')go('reveal');
+    else if(s.phase==='finished')go('finished');
+    else go('lobby');
+  }catch(e){err.textContent='Connection error. Try again.';if(btn){btn.disabled=false;btn.textContent='Join quiz →';}}
 }
 
-// ─────────────────────────────────────────────────────────
-// PARTICIPANT LOBBY
-// ─────────────────────────────────────────────────────────
+// ── PARTICIPANT LOBBY ────────────────────────────────────
 function rLobby(){
-  const count=Object.keys(G.players).length;
+  const s=GS||freshState();
+  const count=Object.keys(s.players||{}).length;
   set(`<div style="text-align:center;padding:2rem 0.5rem">
     <div style="font-size:13px;color:#aaa;margin-bottom:0.5rem">Waiting for host to start...</div>
     <h2 style="font-size:22px;font-weight:700;margin-bottom:4px">PAM360 Build 8540 Quiz</h2>
     <p style="font-size:13px;color:#777;margin-bottom:1.5rem">${QUESTIONS.length} questions &nbsp;·&nbsp; ${Q_TIME}s each</p>
-    <div style="width:76px;height:76px;border-radius:50%;background:${gc(G.nickname)};display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff;margin:0 auto 0.75rem">${ini(G.nickname)}</div>
-    <p style="font-size:18px;font-weight:700;margin-bottom:4px">${G.nickname}</p>
-    <p style="font-size:13px;color:#888;margin-bottom:1.5rem">You're in! &nbsp;<strong>${count}</strong> player${count!==1?'s':''} in lobby.</p>
+    <div style="width:76px;height:76px;border-radius:50%;background:${gc(MY_NAME)};display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff;margin:0 auto 0.75rem">${ini(MY_NAME)}</div>
+    <p style="font-size:18px;font-weight:700;margin-bottom:4px">${MY_NAME}</p>
+    <p style="font-size:13px;color:#888;margin-bottom:1.5rem">You're in! <strong>${count}</strong> player${count!==1?'s':''} in lobby.</p>
     <div class="badge-live" style="display:inline-flex;margin-bottom:1.5rem">Waiting for host</div>
-    <div style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center;max-width:420px;margin:0 auto">
-      ${Object.keys(G.players).map(n=>`
+    <div style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center;max-width:400px;margin:0 auto">
+      ${Object.keys(s.players||{}).map(n=>`
         <div class="chip" style="background:${gc(n)}18;border-color:${gc(n)}55">
-          ${av(n,16,8,'vertical-align:middle')}
-          <span style="margin-left:3px;color:#333">${n}</span>
+          ${av(n,16,8)}<span style="margin-left:3px;color:#333">${n}</span>
         </div>`).join('')}
     </div>
   </div>`);
 }
 
-// ─────────────────────────────────────────────────────────
-// PARTICIPANT QUESTION
-// ─────────────────────────────────────────────────────────
+// ── PARTICIPANT QUESTION ─────────────────────────────────
 function rQuestion(){
-  const q=QUESTIONS[G.currentQ];
-  const picked=G.myAnswers[G.currentQ];
+  const s=GS||freshState();
+  const q=QUESTIONS[s.currentQ];
+  const picked=MY_ANSWERS[s.currentQ];
   const answered=picked!==undefined;
+  const elapsed=s.timerStart?Math.floor((Date.now()-s.timerStart)/1000):0;
+  timerVal=Math.max(0,Q_TIME-elapsed);
   set(`<div>
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem">
       <div style="display:flex;align-items:center;gap:8px">
         <span class="tag tag-blue">${q.topic}</span>
-        <span style="font-size:12px;color:#888">Q${G.currentQ+1}/${QUESTIONS.length}</span>
+        <span style="font-size:12px;color:#888">Q${s.currentQ+1}/${QUESTIONS.length}</span>
       </div>
-      <div class="timer${G.timerVal<=5?' timer-danger':G.timerVal<=10?' timer-warn':''}" id="timer-el">${G.timerVal}</div>
+      <div class="timer${timerVal<=5?' timer-danger':timerVal<=10?' timer-warn':''}" id="timer-el">${timerVal}</div>
     </div>
-    <div class="prog-bg"><div class="prog-fill" style="width:${Math.round(G.currentQ/QUESTIONS.length*100)}%"></div></div>
+    <div class="prog-bg"><div class="prog-fill" style="width:${Math.round(s.currentQ/QUESTIONS.length*100)}%"></div></div>
     <p style="font-size:16px;font-weight:700;margin-bottom:1.1rem;line-height:1.55">${q.q}</p>
     ${q.opts.map((o,i)=>`
-      <button class="opt${answered&&i===picked?' picked':''}" ${answered?'disabled':''} onclick="playerAnswer(${i})">
+      <button class="opt${answered&&i===picked?' picked':''}" ${answered?'disabled':''} onclick="playerAnswer(${i},${s.currentQ})">
         <span style="font-weight:700;color:#bbb;margin-right:8px">${String.fromCharCode(65+i)}.</span>${o}
       </button>`).join('')}
-    ${answered
-      ?`<div style="margin-top:1rem;padding:0.75rem 1rem;background:#e6f7f1;border:1px solid #6ee7b7;border-radius:9px;font-size:13px;color:#065f46;text-align:center">
-          &#10003;&nbsp; Answer locked in — waiting for host to reveal
-        </div>`
-      :''}
+    ${answered?`<div class="notice notice-green" style="margin-top:1rem;text-align:center">&#10003; Answer locked in — waiting for host to reveal</div>`:''}
   </div>`);
+  // start participant timer display
+  clearInterval(timerInterval);
+  timerInterval=setInterval(()=>{
+    timerVal--;
+    const el=document.getElementById('timer-el');
+    if(el){el.textContent=timerVal;el.className=`timer${timerVal<=5?' timer-danger':timerVal<=10?' timer-warn':''}`;}
+    if(timerVal<=0){clearInterval(timerInterval);if(V==='question')go('reveal');}
+  },1000);
 }
 
-function playerAnswer(i){
-  if(G.myAnswers[G.currentQ]!==undefined)return;
-  G.myAnswers[G.currentQ]=i;
-  const q=QUESTIONS[G.currentQ];
-  const correct=i===q.answer;
-  const timeTaken=Q_TIME-G.timerVal;
-  const pts=correct?Math.max(50,Math.round(500-timeTaken*42)):0;
-  if(G.players[G.nickname]){
-    G.players[G.nickname].answers[G.currentQ]={choice:i,correct,pts,time:timeTaken};
-    G.players[G.nickname].score=(G.players[G.nickname].score||0)+pts;
+async function playerAnswer(choice,qIdx){
+  if(MY_ANSWERS[qIdx]!==undefined)return;
+  const s=GS||freshState();
+  const q=QUESTIONS[qIdx];
+  const elapsed=s.timerStart?Math.floor((Date.now()-s.timerStart)/1000):Q_TIME;
+  const correct=choice===q.answer;
+  const pts=correct?Math.max(50,Math.round(500-elapsed*42)):0;
+  MY_ANSWERS[qIdx]=choice;
+  if(s.players[MY_NAME]){
+    s.players[MY_NAME].answers=s.players[MY_NAME].answers||{};
+    s.players[MY_NAME].answers[qIdx]={choice,correct,pts,time:elapsed};
+    s.players[MY_NAME].score=(s.players[MY_NAME].score||0)+pts;
+    await binWrite(BIN_ID,s);
+    GS=s;
   }
   render();
 }
 
-// ─────────────────────────────────────────────────────────
-// PARTICIPANT REVEAL
-// ─────────────────────────────────────────────────────────
+// ── PARTICIPANT REVEAL ───────────────────────────────────
 function rReveal(){
-  const q=QUESTIONS[G.currentQ];
-  const myAns=G.players[G.nickname]?.answers?.[G.currentQ];
-  const picked=G.myAnswers[G.currentQ];
+  const s=GS||freshState();
+  const q=QUESTIONS[s.currentQ];
+  const myAns=s.players[MY_NAME]?.answers?.[s.currentQ];
   const correct=myAns?.correct||false;
   set(`<div>
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem">
       <span class="tag tag-orange">Answer revealed</span>
-      <span style="font-size:12px;color:#888">Q${G.currentQ+1}/${QUESTIONS.length}</span>
+      <span style="font-size:12px;color:#888">Q${s.currentQ+1}/${QUESTIONS.length}</span>
     </div>
     <p style="font-size:16px;font-weight:700;margin-bottom:1rem;line-height:1.55">${q.q}</p>
-    ${q.opts.map((o,i)=>`
-      <button class="opt ${i===q.answer?'reveal-correct':picked===i&&!correct?'wrong':''}" disabled>
-        <span style="font-weight:700;color:${i===q.answer?'#14532d':'#bbb'};margin-right:8px">${String.fromCharCode(65+i)}.</span>${o}
-        ${i===q.answer?' &#10003;':''}
-      </button>`).join('')}
+    ${q.opts.map((o,i)=>`<button class="opt${i===q.answer?' correct':myAns&&myAns.choice===i?' wrong':''}" disabled>
+      <span style="font-weight:700;color:${i===q.answer?'#14532d':'#bbb'};margin-right:8px">${String.fromCharCode(65+i)}.</span>${o}${i===q.answer?' &#10003;':''}
+    </button>`).join('')}
     ${myAns
-      ?`<div style="margin-top:1rem;padding:0.8rem 1rem;border-radius:9px;font-size:14px;font-weight:500;
-          background:${correct?'#dcfce7':'#fee2e2'};color:${correct?'#14532d':'#7f1d1d'};
-          border:1px solid ${correct?'#86efac':'#fca5a5'}">
-          ${correct?`&#9989;&nbsp; Correct! +${myAns.pts} pts &nbsp;·&nbsp; answered in ${myAns.time.toFixed(1)}s`
-            :`&#10060;&nbsp; Incorrect. Correct answer: <strong>${String.fromCharCode(65+q.answer)}. ${q.opts[q.answer]}</strong>`}
+      ?`<div class="notice ${correct?'notice-green':'notice-red'}" style="margin-top:1rem">
+          <strong>${correct?'&#9989; Correct!':'&#10060; Incorrect.'}</strong>
+          ${correct?` You earned +${myAns.pts} pts (answered in ${myAns.time}s)`
+            :` Correct: <strong>${String.fromCharCode(65+q.answer)}. ${q.opts[q.answer]}</strong>`}
         </div>`
-      :`<div style="margin-top:1rem;padding:0.8rem 1rem;background:#f5f5f3;border-radius:9px;font-size:13px;color:#888">Time ran out — no answer recorded.</div>`}
-    <div style="margin-top:0.75rem;padding:0.7rem 0.9rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:13px;color:#14532d;line-height:1.55">
-      &#128161;&nbsp;<strong>Why?</strong> ${q.explain}
+      :`<div class="notice" style="margin-top:1rem;background:#f5f5f3;border:1px solid #e0e0de;color:#888">Time ran out — no answer recorded.</div>`}
+    <div class="notice notice-green" style="margin-top:0.75rem">
+      &#128161; <strong>Why?</strong> ${q.explain}
     </div>
     <p style="font-size:13px;color:#aaa;margin-top:1rem;text-align:center" class="pulse">Waiting for host to continue...</p>
   </div>`);
 }
 
-// ─────────────────────────────────────────────────────────
-// PARTICIPANT LEADERBOARD
-// ─────────────────────────────────────────────────────────
+// ── PARTICIPANT LEADERBOARD ──────────────────────────────
 function rLB(){
-  const lb=lbData();
-  const ms=lb[0]?.score||1;
+  const s=GS||freshState();
   set(`<div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
-      <h2 style="font-size:20px;font-weight:700">Leaderboard</h2>
-    </div>
-    <div id="lb-r"></div>
+    <h2 style="font-size:20px;font-weight:700;margin-bottom:1rem">Leaderboard</h2>
+    <div id="lb-rows-el"></div>
     <p style="font-size:13px;color:#aaa;margin-top:1rem;text-align:center" class="pulse">Waiting for host...</p>
   </div>`);
-  const el=document.getElementById('lb-r');
-  lb.slice(0,20).forEach((p,i)=>{
-    const r=document.createElement('div');
-    r.className=`lb-row${p.name===G.nickname?' me':''}`;
-    r.innerHTML=`<span style="font-size:${i<3?18:13}px;width:28px;text-align:center">${i===0?'🥇':i===1?'🥈':i===2?'🥉':p.rank}</span>
-      ${av(p.name,32,12)}
-      <span class="lb-name">${p.name}${p.name===G.nickname?' <span style="font-size:11px;color:#1D9E75;font-weight:600">(you)</span>':''}</span>
-      <div class="lb-bar-bg"><div class="lb-bar-fill" style="width:${Math.round(p.score/ms*100)}%"></div></div>
-      <span class="lb-pts">${p.score} pts</span>`;
-    el.appendChild(r);
-  });
+  renderLBRows(s.players);
 }
 
-// ─────────────────────────────────────────────────────────
-// PARTICIPANT FINISHED
-// ─────────────────────────────────────────────────────────
+// ── PARTICIPANT FINISHED ─────────────────────────────────
 function rFinished(){
-  const lb=lbData();
+  const s=GS||freshState();
+  const lb=lbRows(s.players);
   const ms=lb[0]?.score||1;
-  const me=lb.find(p=>p.name===G.nickname);
+  const me=lb.find(p=>p.name===MY_NAME);
   set(`<div>
     <div style="text-align:center;margin-bottom:1.5rem">
-      <div style="font-size:40px;margin-bottom:6px">&#127881;</div>
+      <div style="font-size:42px;margin-bottom:6px">&#127881;</div>
       <h1 style="font-size:24px;font-weight:700">Quiz Complete!</h1>
-      ${me?`<p style="font-size:14px;color:#666;margin-top:6px">You finished <strong>${me.rank===1?'1st':me.rank===2?'2nd':me.rank===3?'3rd':me.rank+'th'}</strong> with <strong>${me.score} pts</strong></p>`:''}
+      ${me?`<p style="font-size:14px;color:#666;margin-top:6px">You finished <strong>#${me.rank}</strong> with <strong>${me.score} pts</strong> &nbsp;·&nbsp; <strong>${me.correct||0}/${QUESTIONS.length}</strong> correct</p>`:''}
     </div>
     ${lb.slice(0,3).map((p,i)=>`
       <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;margin-bottom:8px;
-        background:${['#FEFCE8','#F8FAFC','#FFF7ED'][i]};
-        border:1.5px solid ${['#FDE047','#CBD5E1','#FDBA74'][i]}${p.name===G.nickname?';outline:2px solid #1D9E75;outline-offset:2px':''}">
+        background:${['#FEFCE8','#F8FAFC','#FFF7ED'][i]};border:1.5px solid ${['#FDE047','#CBD5E1','#FDBA74'][i]}${p.name===MY_NAME?';outline:2px solid #1D9E75;outline-offset:2px':''}">
         <span style="font-size:26px">${['🥇','🥈','🥉'][i]}</span>
         ${av(p.name,42,15)}
         <div style="flex:1">
-          <div style="font-size:15px;font-weight:700">${p.name}${p.name===G.nickname?' <span style="font-size:11px;color:#1D9E75">(you)</span>':''}</div>
-          <div style="font-size:12px;color:#777">${p.score} pts</div>
+          <div style="font-size:15px;font-weight:700">${p.name}${p.name===MY_NAME?' <span style="font-size:11px;color:#1D9E75">(you)</span>':''}</div>
+          <div style="font-size:12px;color:#777">${p.correct||0}/${QUESTIONS.length} correct &nbsp;·&nbsp; ${p.score} pts</div>
         </div>
-        <div style="font-size:20px;font-weight:800;color:#1D9E75">${Math.round(p.score/(QUESTIONS.length*500)*100)}%</div>
       </div>`).join('')}
     <div class="hr"></div>
     <p class="sec">All results</p>
-    <div id="lb-full"></div>
+    <div id="lb-rows-el"></div>
   </div>`);
-  const el=document.getElementById('lb-full');
-  lb.forEach(p=>{
-    const r=document.createElement('div');
-    r.className=`lb-row${p.name===G.nickname?' me':''}`;
-    r.innerHTML=`<span style="font-size:13px;font-weight:700;width:28px;text-align:center;color:#999">${p.rank}</span>
-      ${av(p.name,30,11)}
-      <span class="lb-name">${p.name}${p.name===G.nickname?' <span style="font-size:11px;color:#1D9E75">(you)</span>':''}</span>
-      <div class="lb-bar-bg"><div class="lb-bar-fill" style="width:${Math.round(p.score/ms*100)}%"></div></div>
-      <span class="lb-pts">${p.score} pts</span>`;
-    el.appendChild(r);
-  });
+  renderLBRows(s.players);
 }
 
-render();
+// ── BOOT ─────────────────────────────────────────────────
+(async function boot(){
+  // If URL has bin + role=player, auto-route to join
+  if(BIN_ID&&ROLE==='player'){
+    try{GS=await binRead(BIN_ID);}catch(e){}
+    startPoll();
+    go('join');
+  } else {
+    go('landing');
+  }
+})();
 </script>
 </body>
 </html>

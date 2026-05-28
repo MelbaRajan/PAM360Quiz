@@ -7,818 +7,756 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f3;color:#1a1a1a;min-height:100vh}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f0ee;color:#1a1a1a;min-height:100vh}
 .page{min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem}
-.container{width:100%;max-width:580px}
-.card{background:#fff;border:1px solid #e5e5e3;border-radius:12px;padding:1.5rem}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:0.55rem 1.1rem;border:1px solid #d0d0ce;border-radius:8px;background:transparent;color:#1a1a1a;font-size:14px;cursor:pointer;transition:background 0.15s;font-family:inherit}
-.btn:hover{background:#f0f0ee}
-.btn:disabled{opacity:0.35;cursor:default}
-.btn-primary{background:#1D9E75;border-color:#1D9E75;color:#fff}
-.btn-primary:hover{background:#0F6E56;border-color:#0F6E56}
-.btn-danger{background:#E24B4A;border-color:#E24B4A;color:#fff}
-.btn-danger:hover{background:#A32D2D;border-color:#A32D2D}
-input[type=text]{width:100%;padding:0.55rem 0.8rem;border:1px solid #d0d0ce;border-radius:8px;background:#fff;color:#1a1a1a;font-size:14px;font-family:inherit}
-input[type=text]:focus{outline:none;box-shadow:0 0 0 2px #1D9E75;border-color:#1D9E75}
-.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:6px;background:#e6f1fb;color:#185fa5;font-weight:500}
-.metric{background:#f5f5f3;border-radius:8px;padding:1rem;text-align:center}
-.metric-val{font-size:24px;font-weight:600;color:#1a1a1a}
-.metric-lbl{font-size:12px;color:#666;margin-top:2px}
-.opt-btn{display:block;width:100%;text-align:left;padding:0.75rem 1rem;margin-bottom:8px;border:1px solid #e5e5e3;border-radius:8px;background:#f5f5f3;color:#1a1a1a;font-size:14px;cursor:pointer;transition:border-color 0.15s,background 0.15s;font-family:inherit;line-height:1.5}
-.opt-btn:hover:not(:disabled){border-color:#1D9E75;background:#fff}
-.opt-btn.selected{border-color:#1D9E75;background:#e1f5ee;color:#085041}
-.opt-btn.correct{border-color:#3B6D11;background:#EAF3DE;color:#27500A;font-weight:500}
-.opt-btn.wrong{border-color:#A32D2D;background:#FCEBEB;color:#501313}
-.opt-btn:disabled{cursor:default}
-.timer-ring{width:52px;height:52px;border-radius:50%;border:3px solid #e5e5e3;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;color:#1a1a1a;flex-shrink:0}
-.timer-urgent{border-color:#E24B4A!important;color:#E24B4A!important}
-.progress{height:4px;background:#e5e5e3;border-radius:2px;overflow:hidden;margin-bottom:1rem}
-.progress-fill{height:100%;background:#1D9E75;transition:width 0.3s}
-.lb-row{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;margin-bottom:6px;background:#f5f5f3}
-.lb-rank{font-size:13px;font-weight:600;width:28px;color:#666;flex-shrink:0;text-align:center}
-.lb-name{flex:1;font-size:14px;font-weight:500}
-.lb-score{font-size:14px;font-weight:600;color:#1D9E75;white-space:nowrap}
-.lb-bar-wrap{width:80px;height:6px;background:#e5e5e3;border-radius:3px;overflow:hidden;flex-shrink:0}
-.lb-bar{height:100%;background:#1D9E75;border-radius:3px}
-.section-title{font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:10px}
-.divider{border:none;border-top:1px solid #e5e5e3;margin:1rem 0}
-.avatar{border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;flex-shrink:0}
-.qr-wrap{background:#fff;padding:12px;border-radius:8px;display:inline-block;border:1px solid #e5e5e3}
-.chip{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:4px 10px;font-size:12px;margin:3px}
-.feedback-box{margin-top:1rem;padding:0.75rem 1rem;border-radius:8px;font-size:14px;line-height:1.5}
-h1{font-size:22px;font-weight:600}
-h2{font-size:18px;font-weight:600}
-.pulse{animation:pulse 1.5s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
-@media(max-width:480px){.container{max-width:100%}.page{padding:1rem 0.75rem}}
+.wrap{width:100%;max-width:640px}
+.card{background:#fff;border:1px solid #e0e0de;border-radius:14px;padding:1.5rem;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:0.55rem 1.15rem;border:1px solid #ccc;border-radius:8px;background:#fff;color:#1a1a1a;font-size:14px;cursor:pointer;font-family:inherit;transition:background 0.12s,border-color 0.12s}
+.btn:hover:not(:disabled){background:#f5f5f3;border-color:#aaa}
+.btn:disabled{opacity:0.35;cursor:not-allowed}
+.btn-green{background:#1D9E75;border-color:#1D9E75;color:#fff}
+.btn-green:hover:not(:disabled){background:#0F6E56;border-color:#0F6E56}
+.btn-red{background:#E24B4A;border-color:#E24B4A;color:#fff}
+.btn-red:hover:not(:disabled){background:#c03a39;border-color:#c03a39}
+.btn-blue{background:#2563EB;border-color:#2563EB;color:#fff}
+.btn-blue:hover:not(:disabled){background:#1a4fcf;border-color:#1a4fcf}
+input[type=text]{width:100%;padding:0.6rem 0.85rem;border:1px solid #ccc;border-radius:8px;font-size:14px;font-family:inherit;color:#1a1a1a;background:#fff}
+input[type=text]:focus{outline:none;border-color:#1D9E75;box-shadow:0 0 0 3px #1D9E7520}
+.tag{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;font-weight:600;letter-spacing:0.02em}
+.tag-blue{background:#dbeafe;color:#1e40af}
+.tag-green{background:#dcfce7;color:#166534}
+.tag-orange{background:#ffedd5;color:#9a3412}
+.metric{background:#f8f8f6;border:1px solid #e8e8e6;border-radius:10px;padding:0.9rem;text-align:center}
+.metric-val{font-size:26px;font-weight:700;color:#1a1a1a;line-height:1}
+.metric-lbl{font-size:11px;color:#888;margin-top:4px;font-weight:500;text-transform:uppercase;letter-spacing:0.04em}
+.opt{display:block;width:100%;text-align:left;padding:0.8rem 1rem;margin-bottom:8px;border:1.5px solid #e0e0de;border-radius:10px;background:#fafaf8;color:#1a1a1a;font-size:14px;cursor:pointer;font-family:inherit;line-height:1.5;transition:all 0.12s}
+.opt:hover:not(:disabled){border-color:#1D9E75;background:#f0faf6}
+.opt.picked{border-color:#1D9E75;background:#e6f7f1;color:#064e3b}
+.opt.correct{border-color:#16a34a;background:#dcfce7;color:#14532d;font-weight:600}
+.opt.wrong{border-color:#dc2626;background:#fee2e2;color:#7f1d1d}
+.opt.reveal-correct{border-color:#16a34a;background:#dcfce7;color:#14532d;font-weight:600}
+.opt:disabled{cursor:default}
+.timer{width:56px;height:56px;border-radius:50%;border:3.5px solid #e0e0de;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex-shrink:0;transition:border-color 0.3s,color 0.3s}
+.timer-warn{border-color:#f59e0b;color:#b45309}
+.timer-danger{border-color:#ef4444;color:#dc2626}
+.prog-bg{height:5px;background:#e0e0de;border-radius:3px;overflow:hidden;margin-bottom:1.1rem}
+.prog-fill{height:100%;background:#1D9E75;border-radius:3px;transition:width 0.4s}
+.lb-row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;margin-bottom:5px;background:#f8f8f6;border:1px solid #ececea}
+.lb-row.me{background:#e6f7f1;border-color:#1D9E75}
+.lb-name{flex:1;font-size:14px;font-weight:500;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lb-pts{font-size:13px;font-weight:700;color:#1D9E75;white-space:nowrap}
+.lb-bar-bg{width:72px;height:5px;background:#e0e0de;border-radius:3px;overflow:hidden;flex-shrink:0}
+.lb-bar-fill{height:100%;background:#1D9E75;border-radius:3px}
+.sec{font-size:11px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px}
+.hr{border:none;border-top:1px solid #e8e8e6;margin:1rem 0}
+.av{border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#fff;flex-shrink:0}
+.chip{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:3px 9px;font-size:12px;margin:3px;border:1px solid}
+.pulse{animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.45}}
+.badge-live{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#16a34a;background:#dcfce7;border:1px solid #bbf7d0;border-radius:20px;padding:3px 10px}
+.badge-live::before{content:'';width:7px;height:7px;border-radius:50%;background:#16a34a;animation:pulse 1.2s infinite}
+@media(max-width:500px){.wrap{max-width:100%}.page{padding:0.75rem}}
 </style>
 </head>
 <body>
-<div class="page"><div class="container" id="root"></div></div>
+<div class="page"><div class="wrap" id="root"></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-// ─── IMPORTANT: This quiz uses localStorage to simulate multiplayer
-// on a single hosted URL. All participants on the same domain share state.
-const QUESTION_TIME = 20;
-const STORAGE_KEY = 'pam360_quiz_state';
-const POLL_INTERVAL = 1500;
-
+// ─── CONFIG ──────────────────────────────────────────────
+const Q_TIME = 20;
+const ADMIN_PIN = '1234';
 const QUESTIONS = [
   {
-    topic: "Ephemeral Accounts",
-    q: "What is the primary security benefit of PAM360's Ephemeral Account Provisioning?",
-    opts: [
-      "Encrypts existing privileged accounts using AES-256",
-      "Eliminates persistent privileged accounts with time-bound, on-demand accounts",
-      "Allows bulk import of service accounts from Active Directory",
-      "Enables MFA for all privileged users"
-    ],
-    answer: 1
+    topic:"Ephemeral Accounts",
+    q:"What is the primary security benefit of PAM360's Ephemeral Account Provisioning?",
+    opts:["Encrypts existing privileged accounts using AES-256","Eliminates persistent privileged accounts with time-bound, on-demand accounts","Allows bulk import of service accounts from Active Directory","Enables MFA for all privileged users"],
+    answer:1,
+    explain:"Ephemeral accounts are time-bound and provisioned on demand — they are automatically deprovisioned after use, eliminating persistent accounts and reducing credential misuse via just-in-time access."
   },
   {
-    topic: "Ephemeral Accounts",
-    q: "Which access principle does Ephemeral Account Provisioning implement to reduce credential misuse?",
-    opts: ["Zero-trust network access","Separation of duties","Just-in-time access","Least privilege enforcement"],
-    answer: 2
+    topic:"Ephemeral Accounts",
+    q:"Which access principle does Ephemeral Account Provisioning implement to reduce credential misuse?",
+    opts:["Zero-trust network access","Separation of duties","Just-in-time (JIT) access","Least privilege enforcement"],
+    answer:2,
+    explain:"Just-in-time (JIT) access means accounts are only created when needed and automatically removed after the session ends."
   },
   {
-    topic: "AI Integration",
-    q: "Which AI platform is NOT listed among PAM360's newly supported integrations?",
-    opts: ["Microsoft Azure OpenAI Service","DeepSeek","IBM Watson","Anthropic"],
-    answer: 2
+    topic:"AI Integration",
+    q:"Which AI platform is NOT listed among PAM360's newly supported cloud AI integrations?",
+    opts:["Microsoft Azure OpenAI Service","DeepSeek","IBM Watson","Anthropic"],
+    answer:2,
+    explain:"PAM360 now supports Microsoft Azure OpenAI Service, Anthropic, Google AI, DeepSeek, and SiliconFlow. IBM Watson is not included."
   },
   {
-    topic: "AI Integration",
-    q: "What are the two key capabilities that benefit from PAM360's expanded cloud AI integrations?",
-    opts: [
-      "Password rotation and credential discovery",
-      "Session analysis and CIEM policy recommendations",
-      "Threat intelligence and vulnerability scanning",
-      "User provisioning and access certification"
-    ],
-    answer: 1
+    topic:"AI Integration",
+    q:"What two capabilities benefit most from PAM360's expanded cloud AI integrations?",
+    opts:["Password rotation and credential discovery","Session analysis and CIEM policy recommendations","Threat intelligence and vulnerability scanning","User provisioning and access certification"],
+    answer:1,
+    explain:"The AI integrations are specifically used for session analysis and Cloud Infrastructure Entitlement Management (CIEM) policy recommendations."
   },
   {
-    topic: "AI Integration",
-    q: "Does PAM360 support connecting to local/self-hosted LLMs via HTTP connections?",
-    opts: [
-      "Yes, both HTTP and HTTPS are supported",
-      "Yes, HTTP is supported for internal network LLMs",
-      "No, PAM360 only supports HTTPS connections for local LLMs",
-      "No, PAM360 does not support self-hosted LLMs at all"
-    ],
-    answer: 2
+    topic:"AI Integration",
+    q:"Does PAM360 support connecting to self-hosted / local LLMs over HTTP?",
+    opts:["Yes — both HTTP and HTTPS are supported","Yes — HTTP is allowed for internal network LLMs","No — PAM360 only supports HTTPS connections, even for local LLMs","No — PAM360 does not support self-hosted LLMs at all"],
+    answer:2,
+    explain:"PAM360 supports self-hosted LLMs (Phi-3, Mistral, LLaMA, Qwen etc.) but requires HTTPS connections only — HTTP is not supported."
   },
   {
-    topic: "Session Management",
-    q: "What does the new remote audio input redirection in RDP sessions allow users to do?",
-    opts: [
-      "Record remote machine audio to a local file",
-      "Use their local microphone as an input device in the remote machine",
-      "Stream audio from the remote machine to local speakers",
-      "Enable text-to-speech during SSH sessions"
-    ],
-    answer: 1
+    topic:"Session Management",
+    q:"What does the new remote audio input redirection in RDP sessions allow users to do?",
+    opts:["Record remote machine audio to a local file","Use their local microphone as an input device inside the remote machine","Stream audio from the remote machine to local speakers","Enable text-to-speech during SSH sessions"],
+    answer:1,
+    explain:"Remote audio input redirection lets users use their local microphone as an input device within the remote RDP machine — it's input, not output."
   },
   {
-    topic: "Session Management",
-    q: "The new role-based privilege for session recording deletion is primarily intended to do what?",
-    opts: [
-      "Reduce storage costs via automated deletion",
-      "Let end-users manage their own session history",
-      "Strengthen audit integrity by restricting who can delete recordings",
-      "Enable real-time RDP session monitoring"
-    ],
-    answer: 2
+    topic:"Session Management",
+    q:"What is the primary purpose of the new role-based privilege to control deletion of session recordings?",
+    opts:["Reduce storage costs by automating old recording deletion","Allow end-users to manage their own session history","Strengthen audit integrity and compliance by restricting who can delete recordings","Enable real-time monitoring of active RDP sessions"],
+    answer:2,
+    explain:"Administrators can restrict users from deleting recorded sessions, which strengthens audit integrity and compliance."
   },
   {
-    topic: "Library Upgrades",
-    q: "The Cewolf library was removed from PAM360. What is the direct impact on users?",
-    opts: [
-      "PDF reports can no longer be exported",
-      "Visual charts won't appear in reports, but all data remains available",
-      "Session recordings can no longer be played back",
-      "The dashboard won't display real-time metrics"
-    ],
-    answer: 1
+    topic:"Security Enhancement",
+    q:"Why was the Cewolf library removed from PAM360, and what is the impact?",
+    opts:["It caused performance issues — dashboards now load faster","It reached End-of-Life (EOL) status; visual charts are removed from reports but all data remains available","It was replaced by a newer charting library with better visuals","It conflicted with the JasperReports upgrade and both were removed"],
+    answer:1,
+    explain:"Cewolf was removed due to EOL status and security compliance requirements. Reports no longer show visual charts, but all underlying report data is still accessible."
   },
   {
-    topic: "Remote Connect",
-    q: "In Remote Connect 5.1, which credentials can now initiate RDP and SSH connections?",
-    opts: [
-      "API tokens and service account passwords",
-      "Certificate-based credentials only",
-      "Logged-in AD / Entra ID / LDAP credentials",
-      "One-time passwords generated by PAM360"
-    ],
-    answer: 2
+    topic:"Remote Connect",
+    q:"In PAM360 Remote Connect 5.1, which credentials can now be used to initiate RDP and SSH connections?",
+    opts:["API tokens and service account passwords","Certificate-based credentials only","The user's logged-in AD / Entra ID / LDAP credentials","One-time passwords generated by PAM360"],
+    answer:2,
+    explain:"Remote Connect 5.1 lets users initiate RDP and SSH connections using their currently logged-in AD, Entra ID, or LDAP credentials."
   },
   {
-    topic: "Remote Connect",
-    q: "In SSH proxy environments, what must a user provide to connect to resources requiring ticket ID-based approval?",
-    opts: [
-      "A biometric verification token",
-      "A valid ticket ID",
-      "A one-time password from an authenticator app",
-      "An admin-approved session certificate"
-    ],
-    answer: 1
+    topic:"Remote Connect",
+    q:"In SSH proxy environments, what must a user provide to connect to resources requiring ticket ID-based approval?",
+    opts:["A biometric verification token","A valid ticket ID","A one-time password from their authenticator app","An admin-approved session certificate"],
+    answer:1,
+    explain:"Users can now initiate remote connections to resources requiring ticket ID-based approval by providing a valid ticket ID during the connection."
   }
 ];
 
-const COLORS = ['#378ADD','#D85A30','#1D9E75','#7F77DD','#D4537E','#639922','#BA7517','#E24B4A','#0F6E56','#534AB7'];
+const COLORS=['#3B82F6','#EF4444','#10B981','#8B5CF6','#F59E0B','#EC4899','#06B6D4','#F97316','#6366F1','#14B8A6','#84CC16','#E11D48'];
 
-// ─── Shared state via localStorage ───
-function getShared() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaultShared(); }
-  catch(e) { return defaultShared(); }
-}
-function setShared(s) { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); }
-function defaultShared() {
-  return { phase:'lobby', currentQ:-1, players:{}, timerStart:null, revealed:false };
-}
-
-// ─── Local session state ───
-let local = {
+// ─── STATE ───────────────────────────────────────────────
+let G = {
   view: 'landing',
   role: null,
+  pin: '',
+  // Game
+  phase: 'lobby',   // lobby | question | reveal | leaderboard | finished
+  currentQ: -1,
+  players: {},      // { name: { score, answers:{qIdx:{choice,correct,pts,time}}, color } }
+  timerVal: Q_TIME,
+  timerInterval: null,
+  // Admin join flow
+  joinName: '',
+  // Participant join flow
   nickname: '',
-  myAnswers: {},
-  adminPin: '1234',
-  joinUrl: window.location.href,
-  pollInterval: null,
-  lastPhase: null,
-  lastQ: -1,
-  lastPlayerCount: 0
+  myAnswers: {},    // { qIdx: choiceIndex }
+  // QR
+  joinUrl: window.location.href
 };
 
-function gc(n){let h=0;for(let i=0;i<n.length;i++)h=(h*31+n.charCodeAt(i))%COLORS.length;return COLORS[h]}
-function ini(n){return n.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2)}
-function av(name,size,fs){return`<div class="avatar" style="width:${size}px;height:${size}px;min-width:${size}px;background:${gc(name)};font-size:${fs}px">${ini(name)}</div>`}
+// ─── HELPERS ─────────────────────────────────────────────
+function gc(n){let h=0;for(let c of n)h=(h*37+c.charCodeAt(0))%COLORS.length;return COLORS[h]}
+function ini(n){return n.trim().split(/\s+/).map(w=>w[0]||'').join('').toUpperCase().slice(0,2)||'?'}
+function av(name,sz,fs,extra=''){
+  return`<div class="av" style="width:${sz}px;height:${sz}px;min-width:${sz}px;background:${gc(name)};font-size:${fs}px${extra?';'+extra:''}">${ini(name)}</div>`
+}
+function lbData(){
+  return Object.entries(G.players).sort((a,b)=>b[1].score-a[1].score).map(([n,d],i)=>({rank:i+1,name:n,...d}));
+}
+function set(h){document.getElementById('root').innerHTML=h}
+function go(v){G.view=v;render()}
 
-function getLB(players) {
-  return Object.entries(players||{})
-    .sort((a,b)=>b[1].score-a[1].score)
-    .map(([name,d],i)=>({rank:i+1,name,...d}));
+// ─── TIMER ───────────────────────────────────────────────
+function startTimer(onZero){
+  clearInterval(G.timerInterval);
+  G.timerVal = Q_TIME;
+  G.timerInterval = setInterval(()=>{
+    G.timerVal--;
+    refreshTimerEl();
+    if(G.timerVal<=0){clearInterval(G.timerInterval);onZero&&onZero();}
+  },1000);
+}
+function stopTimer(){clearInterval(G.timerInterval);}
+function refreshTimerEl(){
+  const el=document.getElementById('timer-el');
+  if(!el)return;
+  el.textContent=G.timerVal;
+  el.className=`timer${G.timerVal<=5?' timer-danger':G.timerVal<=10?' timer-warn':''}`;
 }
 
-// ─── Polling: sync shared state to local view ───
-function startPolling() {
-  stopPolling();
-  local.pollInterval = setInterval(() => {
-    const shared = getShared();
-    const playerCount = Object.keys(shared.players||{}).length;
-
-    // Phase changed
-    if (shared.phase !== local.lastPhase || shared.currentQ !== local.lastQ) {
-      local.lastPhase = shared.phase;
-      local.lastQ = shared.currentQ;
-      local.lastPlayerCount = playerCount;
-
-      if (local.role === 'player') {
-        if (shared.phase === 'lobby' && local.view !== 'lobby') { go('lobby'); return; }
-        if (shared.phase === 'question' && (local.view === 'lobby' || local.view === 'reveal' || local.view === 'leaderboard')) { go('question'); return; }
-        if (shared.phase === 'reveal' && local.view === 'question') { go('reveal'); return; }
-        if (shared.phase === 'leaderboard' && local.view !== 'leaderboard') { go('leaderboard'); return; }
-        if (shared.phase === 'finished' && local.view !== 'finished') { go('finished'); return; }
-      }
-    }
-
-    // Player count changed — refresh lobby/admin silently
-    if (playerCount !== local.lastPlayerCount) {
-      local.lastPlayerCount = playerCount;
-      if (local.view === 'lobby' || local.view === 'admin') { render(); return; }
-    }
-
-    // Timer updates on question screen
-    if (shared.phase === 'question' && local.view === 'question') {
-      updateTimerDisplay(shared);
-    }
-
-    // Reveal triggered by host
-    if (shared.phase === 'reveal' && local.role === 'player' && local.view === 'question') {
-      go('reveal'); return;
-    }
-
-    // Leaderboard update
-    if (local.view === 'leaderboard') { renderLBRows(shared); }
-
-  }, POLL_INTERVAL);
-}
-
-function stopPolling() {
-  if (local.pollInterval) { clearInterval(local.pollInterval); local.pollInterval = null; }
-}
-
-function getTimeLeft(shared) {
-  if (!shared.timerStart) return QUESTION_TIME;
-  const elapsed = Math.floor((Date.now() - shared.timerStart) / 1000);
-  return Math.max(0, QUESTION_TIME - elapsed);
-}
-
-function updateTimerDisplay(shared) {
-  const t = getTimeLeft(shared);
-  const el = document.getElementById('timer-disp');
-  if (el) { el.textContent = t; el.className = `timer-ring${t<=5?' timer-urgent':''}`; }
-
-  // Auto-reveal for admin when timer hits 0
-  if (t <= 0 && local.role === 'admin') {
-    const s = getShared();
-    if (s.phase === 'question') { s.phase = 'reveal'; setShared(s); go('reveal'); }
-  }
-
-  // Participant auto-moves to reveal when timer 0
-  if (t <= 0 && local.role === 'player' && local.view === 'question') {
-    go('reveal');
-  }
-
-  // Update response rate for admin
-  if (local.role === 'admin') {
-    const s = getShared();
-    const ac = Object.values(s.players||{}).filter(p=>p.answers&&p.answers[s.currentQ]!==undefined).length;
-    const tot = Object.keys(s.players||{}).length;
-    const acEl = document.getElementById('ac'); const rrEl = document.getElementById('rr');
-    if(acEl) acEl.textContent = ac;
-    if(rrEl) rrEl.textContent = (tot>0?Math.round(ac/tot*100):0)+'%';
-  }
-}
-
-// ─── Admin timer loop ───
-let adminTimerInterval = null;
-function startAdminTimer() {
-  clearInterval(adminTimerInterval);
-  adminTimerInterval = setInterval(() => {
-    if (local.role !== 'admin') { clearInterval(adminTimerInterval); return; }
-    const shared = getShared();
-    if (shared.phase !== 'question') { clearInterval(adminTimerInterval); return; }
-    const t = getTimeLeft(shared);
-    updateTimerDisplay(shared);
-    if (t <= 0) {
-      clearInterval(adminTimerInterval);
-      shared.phase = 'reveal';
-      setShared(shared);
-      go('reveal');
-    }
-  }, 500);
-}
-
-// ─── RENDER ───
-function render() {
-  document.getElementById('root').innerHTML = '';
+// ─── RENDER DISPATCH ─────────────────────────────────────
+function render(){
   ({
-    landing: rLanding, join: rJoin, lobby: rLobby,
-    question: rQuestion, reveal: rReveal,
-    leaderboard: rLeaderboard, finished: rFinished,
-    admin: rAdmin, adminPin: rAdminPin, qr: rQR
-  }[local.view] || rLanding)();
+    landing:rLanding, adminPin:rAdminPin, qr:rQR,
+    adminLobby:rAdminLobby, adminQuestion:rAdminQuestion,
+    adminReveal:rAdminReveal, adminLeaderboard:rAdminLB, adminFinished:rAdminFinished,
+    join:rJoin, lobby:rLobby, question:rQuestion,
+    reveal:rReveal, leaderboard:rLB, finished:rFinished
+  }[G.view]||rLanding)();
 }
 
-function set(html) { document.getElementById('root').innerHTML = html; }
-function go(v) { local.view = v; render(); }
-
-// ─── LANDING ───
-function rLanding() {
-  set(`<div style="text-align:center;padding:2.5rem 1rem">
-    <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">ManageEngine PAM360</div>
-    <h1 style="margin-bottom:0.4rem">Build 8540 · Live Quiz</h1>
-    <p style="font-size:14px;color:#666;margin-bottom:2rem">${QUESTIONS.length} questions &nbsp;·&nbsp; ${QUESTION_TIME}s per question &nbsp;·&nbsp; live leaderboard</p>
-    <div style="display:flex;flex-direction:column;gap:10px;max-width:260px;margin:0 auto">
-      <button class="btn btn-primary" style="justify-content:center;padding:0.75rem;font-size:15px" onclick="go('join')">&#128100; Join as participant</button>
-      <button class="btn" style="justify-content:center;padding:0.75rem" onclick="go('adminPin')">&#9881; Host / Admin panel</button>
-      <button class="btn" style="justify-content:center;padding:0.75rem" onclick="go('qr')">&#9638; Show join QR code</button>
+// ─────────────────────────────────────────────────────────
+// LANDING
+// ─────────────────────────────────────────────────────────
+function rLanding(){
+  set(`<div style="text-align:center;padding:2.5rem 1rem 2rem">
+    <div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">ManageEngine PAM360</div>
+    <h1 style="font-size:26px;font-weight:700;margin-bottom:6px">Build 8540 · Live Quiz</h1>
+    <p style="font-size:14px;color:#666;margin-bottom:2rem">${QUESTIONS.length} questions &nbsp;·&nbsp; ${Q_TIME}s timer &nbsp;·&nbsp; live leaderboard</p>
+    <div style="display:flex;flex-direction:column;gap:10px;max-width:272px;margin:0 auto">
+      <button class="btn btn-green" style="justify-content:center;padding:0.8rem;font-size:15px;font-weight:600" onclick="go('join')">&#128100;&nbsp; Join as participant</button>
+      <button class="btn btn-blue" style="justify-content:center;padding:0.8rem;font-weight:600" onclick="go('adminPin')">&#9881;&nbsp; Host / Admin panel</button>
+      <button class="btn" style="justify-content:center;padding:0.8rem" onclick="go('qr')">&#9638;&nbsp; Show join QR code</button>
     </div>
-    <p style="font-size:12px;color:#aaa;margin-top:2rem">Admin PIN: <strong style="color:#666">1234</strong></p>
+    <p style="font-size:12px;color:#bbb;margin-top:1.75rem">Admin PIN: <strong style="color:#888">1234</strong></p>
   </div>`);
 }
 
-// ─── QR PAGE ───
-function rQR() {
+// ─────────────────────────────────────────────────────────
+// ADMIN PIN
+// ─────────────────────────────────────────────────────────
+function rAdminPin(){
+  set(`<div style="max-width:320px;margin:2.5rem auto">
+    <div class="card">
+      <p style="font-size:16px;font-weight:700;margin-bottom:4px">Admin access</p>
+      <p style="font-size:13px;color:#888;margin-bottom:1rem">Enter the host PIN to manage the quiz.</p>
+      <input type="text" id="pin" placeholder="Enter PIN" maxlength="8" style="margin-bottom:8px" />
+      <div id="pin-err" style="font-size:12px;color:#dc2626;min-height:16px;margin-bottom:8px"></div>
+      <div style="display:flex;gap:8px">
+        <button class="btn" onclick="go('landing')">&#8592; Back</button>
+        <button class="btn btn-blue" onclick="doPin()">Enter &rarr;</button>
+      </div>
+    </div>
+  </div>`);
+  const el=document.getElementById('pin');
+  el.focus();
+  el.addEventListener('keydown',e=>{if(e.key==='Enter')doPin();});
+}
+function doPin(){
+  if(document.getElementById('pin').value===ADMIN_PIN){G.role='admin';go('adminLobby');}
+  else document.getElementById('pin-err').textContent='Incorrect PIN. Try again.';
+}
+
+// ─────────────────────────────────────────────────────────
+// QR PAGE
+// ─────────────────────────────────────────────────────────
+function rQR(){
   set(`<div>
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem">
-      <button class="btn" onclick="go('landing')" style="padding:0.4rem 0.75rem">&#8592; Back</button>
-      <h2>Join QR code</h2>
+      <button class="btn" onclick="go('landing')" style="padding:0.4rem 0.8rem">&#8592;</button>
+      <h2 style="font-size:20px;font-weight:700">Join QR code</h2>
     </div>
-    <div class="card" style="display:flex;gap:1.5rem;align-items:flex-start;flex-wrap:wrap">
+    <div class="card" style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-start">
       <div>
-        <div class="qr-wrap" id="qr-canvas"></div>
-        <p style="font-size:11px;color:#aaa;margin-top:6px;text-align:center">Scan to join</p>
+        <div style="background:#fff;padding:10px;border-radius:10px;border:1px solid #e0e0de;display:inline-block" id="qr-el"></div>
+        <p style="font-size:11px;color:#aaa;text-align:center;margin-top:6px">Scan to join</p>
       </div>
-      <div style="flex:1;min-width:200px">
-        <p class="section-title">Quiz URL</p>
-        <input type="text" id="url-input" value="${local.joinUrl}" style="margin-bottom:8px" />
-        <button class="btn btn-primary" onclick="updateQR()" style="width:100%;justify-content:center;margin-bottom:1rem">&#8635; Update QR</button>
-        <div class="divider"></div>
-        <p class="section-title">Share this link</p>
-        <p style="font-size:13px;color:#555;line-height:1.8">Participants open this URL on their phone or laptop, click <strong>"Join as participant"</strong>, enter their nickname and they're in the lobby instantly.</p>
+      <div style="flex:1;min-width:190px">
+        <p class="sec">Quiz URL</p>
+        <input type="text" id="qr-url" value="${G.joinUrl}" style="margin-bottom:8px;font-size:13px" />
+        <button class="btn btn-green" onclick="updateQR()" style="width:100%;justify-content:center;margin-bottom:1rem">&#8635; Update QR</button>
+        <div class="hr"></div>
+        <p class="sec">How to join</p>
+        <p style="font-size:13px;color:#555;line-height:1.85">Participants open the URL on any device, tap <strong>"Join as participant"</strong>, enter their nickname — they appear in the lobby instantly.</p>
       </div>
     </div>
     <div style="margin-top:1rem;display:flex;gap:8px">
-      <button class="btn btn-primary" onclick="go('adminPin')">&#9881; Host panel</button>
+      <button class="btn btn-blue" onclick="go('adminPin')">&#9881; Host panel</button>
       <button class="btn" onclick="go('join')">&#128100; Join</button>
     </div>
   </div>`);
-  setTimeout(()=>genQR(local.joinUrl), 100);
+  setTimeout(()=>doQR(G.joinUrl),80);
+}
+function doQR(url){
+  const el=document.getElementById('qr-el');
+  if(!el)return;
+  el.innerHTML='';
+  try{new QRCode(el,{text:url,width:160,height:160,colorDark:'#111',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});}
+  catch(e){el.innerHTML='<div style="width:160px;height:160px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#888;text-align:center;padding:1rem">Paste URL &amp; click Update QR</div>';}
+}
+function updateQR(){
+  const v=document.getElementById('qr-url')?.value?.trim();
+  if(v){G.joinUrl=v;doQR(v);}
 }
 
-function genQR(url) {
-  const el = document.getElementById('qr-canvas');
-  if (!el) return;
-  el.innerHTML = '';
-  try { new QRCode(el,{text:url,width:160,height:160,colorDark:'#1a1a1a',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M}); }
-  catch(e) { el.innerHTML='<div style="width:160px;height:160px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#888;text-align:center;padding:1rem">Paste your URL and click Update QR</div>'; }
-}
+// ─────────────────────────────────────────────────────────
+// ADMIN LOBBY
+// ─────────────────────────────────────────────────────────
+function rAdminLobby(){
+  const count=Object.keys(G.players).length;
+  set(`<div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem">
+      <div>
+        <h2 style="font-size:20px;font-weight:700">Host panel</h2>
+        <div style="margin-top:4px"><span class="badge-live">Lobby open</span></div>
+      </div>
+      <button class="btn" onclick="go('qr')" style="font-size:12px">&#9638; QR</button>
+    </div>
 
-function updateQR() {
-  const v = document.getElementById('url-input')?.value?.trim();
-  if (v) { local.joinUrl = v; genQR(v); }
-}
-
-// ─── ADMIN PIN ───
-function rAdminPin() {
-  set(`<div style="max-width:320px;margin:2rem auto">
-    <div class="card">
-      <p style="font-size:15px;font-weight:600;margin-bottom:1rem">Enter admin PIN</p>
-      <input type="text" id="pin-input" placeholder="PIN" maxlength="6" style="margin-bottom:10px" />
-      <div id="pin-err" style="font-size:12px;color:#E24B4A;margin-bottom:8px;min-height:16px"></div>
+    <div class="card" style="margin-bottom:1rem">
+      <p class="sec">Add participant manually</p>
       <div style="display:flex;gap:8px">
-        <button class="btn" onclick="go('landing')">Back</button>
-        <button class="btn btn-primary" onclick="checkPin()">Enter</button>
+        <input type="text" id="add-name" placeholder="Type nickname and press Enter" maxlength="20" style="flex:1" />
+        <button class="btn btn-green" onclick="adminAddPlayer()">+ Add</button>
+      </div>
+      <div id="add-err" style="font-size:12px;color:#dc2626;min-height:14px;margin-top:4px"></div>
+    </div>
+
+    <div class="card" style="margin-bottom:1rem">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <p class="sec" style="margin-bottom:0">Players in lobby (${count})</p>
+        <button class="btn" onclick="adminAddDemo()" style="font-size:11px;padding:3px 8px">+ Demo players</button>
+      </div>
+      <div id="player-list" style="display:flex;flex-wrap:wrap;gap:4px;min-height:28px">
+        ${count===0
+          ? '<p style="font-size:13px;color:#bbb;padding:4px 0">No players yet — add manually or share the link/QR.</p>'
+          : renderChips()}
       </div>
     </div>
+
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <button class="btn btn-green" style="font-size:15px;font-weight:600;padding:0.7rem 1.5rem" onclick="adminStart()" ${count===0?'disabled':''}>
+        &#9654;&nbsp; Start quiz${count>0?' ('+count+' player'+(count!==1?'s':'')+')':''}
+      </button>
+      ${count===0?'<span style="font-size:12px;color:#aaa">Add at least one player to start</span>':''}
+    </div>
   </div>`);
-  const pi = document.getElementById('pin-input');
-  pi.focus();
-  pi.addEventListener('keydown', e=>{ if(e.key==='Enter') checkPin(); });
+  const inp=document.getElementById('add-name');
+  inp.focus();
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')adminAddPlayer();});
 }
 
-function checkPin() {
-  if (document.getElementById('pin-input').value === local.adminPin) {
-    local.role = 'admin';
-    // Reset shared state for fresh session
-    setShared(defaultShared());
-    startPolling();
-    go('admin');
-  } else {
-    document.getElementById('pin-err').textContent = 'Incorrect PIN. Try again.';
-  }
+function renderChips(){
+  return Object.keys(G.players).map(name=>`
+    <div class="chip" style="background:${gc(name)}18;border-color:${gc(name)}55;color:#333">
+      ${av(name,16,8,'vertical-align:middle')}
+      <span style="margin-left:3px">${name}</span>
+      <span onclick="removePlayer('${name}')" style="margin-left:4px;cursor:pointer;color:#aaa;font-size:14px;line-height:1" title="Remove">&#215;</span>
+    </div>`).join('');
 }
 
-// ─── JOIN ───
-function rJoin() {
+function adminAddPlayer(){
+  const inp=document.getElementById('add-name');
+  const name=inp.value.trim();
+  const err=document.getElementById('add-err');
+  if(!name){err.textContent='Enter a nickname.';return;}
+  if(name.length<2){err.textContent='At least 2 characters.';return;}
+  if(G.players[name]){err.textContent=`"${name}" is already in the lobby.`;return;}
+  G.players[name]={score:0,answers:{},color:gc(name)};
+  err.textContent='';
+  inp.value='';
+  inp.focus();
+  rAdminLobby();
+}
+
+function removePlayer(name){
+  delete G.players[name];
+  rAdminLobby();
+}
+
+function adminAddDemo(){
+  ['Priya_K','DevOps_Sam','SecLead_Jo','CloudArch','SysAdmin99','PenTester','NetOps_Al','IAM_Expert','Infra_Dan','ReleaseBot'].forEach(n=>{
+    if(!G.players[n])G.players[n]={score:0,answers:{},color:gc(n)};
+  });
+  rAdminLobby();
+}
+
+function adminStart(){
+  if(Object.keys(G.players).length===0)return;
+  G.phase='question';
+  G.currentQ=0;
+  go('adminQuestion');
+  startTimer(()=>{stopTimer();go('adminReveal');});
+}
+
+// ─────────────────────────────────────────────────────────
+// ADMIN QUESTION
+// ─────────────────────────────────────────────────────────
+function rAdminQuestion(){
+  const q=QUESTIONS[G.currentQ];
+  const count=Object.keys(G.players).length;
+  set(`<div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span class="tag tag-blue">${q.topic}</span>
+        <span style="font-size:12px;color:#888;font-weight:500">Q${G.currentQ+1} / ${QUESTIONS.length}</span>
+      </div>
+      <div class="timer${G.timerVal<=5?' timer-danger':G.timerVal<=10?' timer-warn':''}" id="timer-el">${G.timerVal}</div>
+    </div>
+    <div class="prog-bg"><div class="prog-fill" style="width:${Math.round(G.currentQ/QUESTIONS.length*100)}%"></div></div>
+    <div class="card" style="margin-bottom:1rem">
+      <p style="font-size:17px;font-weight:700;line-height:1.5;margin-bottom:1.1rem">${q.q}</p>
+      ${q.opts.map((o,i)=>`<button class="opt" disabled style="opacity:0.85">
+        <span style="font-weight:700;color:#aaa;margin-right:8px">${String.fromCharCode(65+i)}.</span>${o}
+      </button>`).join('')}
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1rem">
+      <div class="metric"><div class="metric-val">${count}</div><div class="metric-lbl">Players</div></div>
+      <div class="metric"><div class="metric-val">${Q_TIME}s</div><div class="metric-lbl">Timer</div></div>
+      <div class="metric"><div class="metric-val">${G.currentQ+1}/${QUESTIONS.length}</div><div class="metric-lbl">Progress</div></div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-green" onclick="adminReveal()">&#128065;&nbsp; Reveal answer</button>
+      <button class="btn btn-red" onclick="adminEnd()" style="margin-left:auto">End quiz</button>
+    </div>
+  </div>`);
+}
+
+function adminReveal(){
+  stopTimer();
+  G.phase='reveal';
+  go('adminReveal');
+}
+
+// ─────────────────────────────────────────────────────────
+// ADMIN REVEAL
+// ─────────────────────────────────────────────────────────
+function rAdminReveal(){
+  const q=QUESTIONS[G.currentQ];
+  const lb=lbData();
+  const top3=lb.slice(0,3);
+  set(`<div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem">
+      <span class="tag tag-orange">Answer revealed</span>
+      <span style="font-size:12px;color:#888">Q${G.currentQ+1} / ${QUESTIONS.length}</span>
+    </div>
+    <div class="card" style="margin-bottom:1rem">
+      <p style="font-size:16px;font-weight:700;line-height:1.5;margin-bottom:1rem">${q.q}</p>
+      ${q.opts.map((o,i)=>`<button class="opt ${i===q.answer?'reveal-correct':''}" disabled>
+        <span style="font-weight:700;color:${i===q.answer?'#14532d':'#aaa'};margin-right:8px">${String.fromCharCode(65+i)}.</span>${o}
+        ${i===q.answer?'&nbsp;&#10003;':''}
+      </button>`).join('')}
+      <div style="margin-top:0.75rem;padding:0.7rem 0.9rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:13px;color:#14532d;line-height:1.55">
+        <strong>Explanation:</strong> ${q.explain}
+      </div>
+    </div>
+    <div style="margin-bottom:1rem">
+      <p class="sec">Top 3 leaderboard</p>
+      ${top3.map((p,i)=>`
+        <div class="lb-row">
+          <span style="font-size:16px;width:26px;text-align:center">${['🥇','🥈','🥉'][i]}</span>
+          ${av(p.name,30,11)}
+          <span class="lb-name">${p.name}</span>
+          <span class="lb-pts">${p.score} pts</span>
+        </div>`).join('')}
+      ${top3.length===0?'<p style="font-size:13px;color:#aaa">No scores yet.</p>':''}
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn btn-green" style="font-weight:600" onclick="adminNext()">
+        ${G.currentQ+1<QUESTIONS.length?'&#8594;&nbsp;Next question':'&#127881;&nbsp;Show final results'}
+      </button>
+      <button class="btn" onclick="adminShowLB()">&#9733;&nbsp; Full leaderboard</button>
+      <button class="btn btn-red" onclick="adminEnd()" style="margin-left:auto">End quiz</button>
+    </div>
+  </div>`);
+}
+
+function adminNext(){
+  if(G.currentQ+1>=QUESTIONS.length){adminEnd();return;}
+  G.currentQ++;
+  G.phase='question';
+  go('adminQuestion');
+  startTimer(()=>{stopTimer();go('adminReveal');});
+}
+
+function adminShowLB(){go('adminLeaderboard');}
+
+// ─────────────────────────────────────────────────────────
+// ADMIN LEADERBOARD
+// ─────────────────────────────────────────────────────────
+function rAdminLB(){
+  const lb=lbData();
+  const ms=lb[0]?.score||1;
+  set(`<div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+      <h2 style="font-size:20px;font-weight:700">Leaderboard</h2>
+      <span style="font-size:12px;color:#888">Q${G.currentQ+1}/${QUESTIONS.length}</span>
+    </div>
+    <div id="lb-rows"></div>
+    <div class="hr"></div>
+    <button class="btn btn-green" onclick="go('adminReveal')">&#8592; Back to reveal</button>
+  </div>`);
+  const el=document.getElementById('lb-rows');
+  lb.slice(0,20).forEach((p,i)=>{
+    const r=document.createElement('div');r.className='lb-row';
+    r.innerHTML=`<span style="font-size:${i<3?18:13}px;width:28px;text-align:center">${i===0?'🥇':i===1?'🥈':i===2?'🥉':p.rank}</span>
+      ${av(p.name,32,12)}
+      <span class="lb-name">${p.name}</span>
+      <div class="lb-bar-bg"><div class="lb-bar-fill" style="width:${Math.round(p.score/ms*100)}%"></div></div>
+      <span class="lb-pts">${p.score} pts</span>`;
+    el.appendChild(r);
+  });
+}
+
+// ─────────────────────────────────────────────────────────
+// ADMIN FINISHED
+// ─────────────────────────────────────────────────────────
+function adminEnd(){
+  stopTimer();
+  G.phase='finished';
+  go('adminFinished');
+}
+
+function rAdminFinished(){
+  const lb=lbData();
+  const ms=lb[0]?.score||1;
+  set(`<div>
+    <div style="text-align:center;margin-bottom:1.5rem">
+      <div style="font-size:40px;margin-bottom:6px">&#127881;</div>
+      <h1 style="font-size:24px;font-weight:700">Final Results</h1>
+      <p style="font-size:13px;color:#888;margin-top:4px">PAM360 Build 8540 Quiz Complete</p>
+    </div>
+    ${lb.slice(0,3).map((p,i)=>`
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:12px;margin-bottom:8px;
+        background:${['#FEFCE8','#F8FAFC','#FFF7ED'][i]};
+        border:1.5px solid ${['#FDE047','#CBD5E1','#FDBA74'][i]}">
+        <span style="font-size:26px">${['🥇','🥈','🥉'][i]}</span>
+        ${av(p.name,44,16)}
+        <div style="flex:1">
+          <div style="font-size:16px;font-weight:700">${p.name}</div>
+          <div style="font-size:12px;color:#777;margin-top:2px">${p.score} points</div>
+        </div>
+        <div style="font-size:22px;font-weight:800;color:#1D9E75">${Math.round(p.score/(QUESTIONS.length*500)*100)}%</div>
+      </div>`).join('')}
+    <div class="hr"></div>
+    <p class="sec">All participants</p>
+    <div id="lb-full"></div>
+    <div class="hr"></div>
+    <button class="btn btn-blue" onclick="adminReset()">&#8635;&nbsp; New quiz</button>
+  </div>`);
+  const el=document.getElementById('lb-full');
+  lb.forEach(p=>{
+    const r=document.createElement('div');r.className='lb-row';
+    r.innerHTML=`<span style="font-size:13px;font-weight:700;width:28px;text-align:center;color:#999">${p.rank}</span>
+      ${av(p.name,30,11)}
+      <span class="lb-name">${p.name}</span>
+      <div class="lb-bar-bg"><div class="lb-bar-fill" style="width:${Math.round(p.score/ms*100)}%"></div></div>
+      <span class="lb-pts">${p.score} pts</span>`;
+    el.appendChild(r);
+  });
+}
+
+function adminReset(){
+  stopTimer();
+  G.players={};G.currentQ=-1;G.phase='lobby';G.timerVal=Q_TIME;
+  go('adminLobby');
+}
+
+// ─────────────────────────────────────────────────────────
+// PARTICIPANT JOIN
+// ─────────────────────────────────────────────────────────
+function rJoin(){
   set(`<div style="max-width:380px;margin:2rem auto">
     <div class="card">
       <div style="text-align:center;margin-bottom:1.25rem">
-        <div style="font-size:40px;margin-bottom:0.5rem">&#128100;</div>
-        <p style="font-size:16px;font-weight:600;margin-bottom:4px">Enter your nickname</p>
-        <p style="font-size:13px;color:#666">This is how you'll appear on the leaderboard.</p>
+        <div style="font-size:44px;margin-bottom:8px">&#128100;</div>
+        <h2 style="font-size:18px;font-weight:700;margin-bottom:4px">Enter your nickname</h2>
+        <p style="font-size:13px;color:#888">This is how you'll appear on the leaderboard.</p>
       </div>
-      <input type="text" id="nick-input" placeholder="e.g. Alex_Dev" maxlength="20" style="margin-bottom:10px;font-size:16px;text-align:center" />
-      <div id="nick-err" style="font-size:12px;color:#E24B4A;margin-bottom:8px;min-height:16px;text-align:center"></div>
-      <button class="btn btn-primary" onclick="joinQuiz()" style="width:100%;justify-content:center;padding:0.75rem;font-size:15px">Join quiz &#8594;</button>
-      <button class="btn" onclick="go('landing')" style="width:100%;justify-content:center;margin-top:8px">Back</button>
+      <input type="text" id="nick" placeholder="e.g. Alex_Dev" maxlength="20" style="margin-bottom:8px;font-size:16px;text-align:center" />
+      <div id="nick-err" style="font-size:12px;color:#dc2626;min-height:16px;text-align:center;margin-bottom:8px"></div>
+      <button class="btn btn-green" onclick="doJoin()" style="width:100%;justify-content:center;padding:0.8rem;font-size:15px;font-weight:600">Join quiz &rarr;</button>
+      <button class="btn" onclick="go('landing')" style="width:100%;justify-content:center;margin-top:8px">&#8592; Back</button>
     </div>
   </div>`);
-  const ni = document.getElementById('nick-input');
-  ni.focus();
-  ni.addEventListener('keydown', e=>{ if(e.key==='Enter') joinQuiz(); });
+  const el=document.getElementById('nick');
+  el.focus();
+  el.addEventListener('keydown',e=>{if(e.key==='Enter')doJoin();});
 }
 
-function joinQuiz() {
-  const nick = document.getElementById('nick-input').value.trim();
-  if (!nick) { document.getElementById('nick-err').textContent = 'Please enter a nickname.'; return; }
-  if (nick.length < 2) { document.getElementById('nick-err').textContent = 'At least 2 characters.'; return; }
-
-  const shared = getShared();
-  if (shared.players[nick]) { document.getElementById('nick-err').textContent = 'Nickname taken. Choose another.'; return; }
-
-  // Register player in shared state
-  shared.players[nick] = { score: 0, answers: {}, joined: true };
-  setShared(shared);
-
-  local.nickname = nick;
-  local.role = 'player';
-  local.myAnswers = {};
-
-  startPolling();
-
-  // Navigate based on current game phase
-  if (shared.phase === 'lobby') go('lobby');
-  else if (shared.phase === 'question') go('question');
-  else if (shared.phase === 'reveal') go('reveal');
-  else if (shared.phase === 'leaderboard') go('leaderboard');
-  else if (shared.phase === 'finished') go('finished');
+function doJoin(){
+  const name=document.getElementById('nick').value.trim();
+  const err=document.getElementById('nick-err');
+  if(!name){err.textContent='Please enter a nickname.';return;}
+  if(name.length<2){err.textContent='At least 2 characters.';return;}
+  if(G.players[name]){err.textContent='That nickname is already taken.';return;}
+  // Register in game
+  G.players[name]={score:0,answers:{},color:gc(name)};
+  G.nickname=name;
+  G.role='player';
+  G.myAnswers={};
+  // Go to correct view based on game phase
+  if(G.phase==='lobby') go('lobby');
+  else if(G.phase==='question') go('question');
+  else if(G.phase==='reveal') go('reveal');
+  else if(G.phase==='finished') go('finished');
   else go('lobby');
 }
 
-// ─── LOBBY ───
-function rLobby() {
-  const shared = getShared();
-  const players = shared.players || {};
-  const count = Object.keys(players).length;
-
-  set(`<div style="text-align:center;padding:2rem 0">
-    <div style="font-size:13px;color:#888;margin-bottom:0.5rem" id="lobby-status">
-      ${local.role === 'player' ? '&#9679; Waiting for host to start...' : 'Lobby'}
+// ─────────────────────────────────────────────────────────
+// PARTICIPANT LOBBY
+// ─────────────────────────────────────────────────────────
+function rLobby(){
+  const count=Object.keys(G.players).length;
+  set(`<div style="text-align:center;padding:2rem 0.5rem">
+    <div style="font-size:13px;color:#aaa;margin-bottom:0.5rem">Waiting for host to start...</div>
+    <h2 style="font-size:22px;font-weight:700;margin-bottom:4px">PAM360 Build 8540 Quiz</h2>
+    <p style="font-size:13px;color:#777;margin-bottom:1.5rem">${QUESTIONS.length} questions &nbsp;·&nbsp; ${Q_TIME}s each</p>
+    <div style="width:76px;height:76px;border-radius:50%;background:${gc(G.nickname)};display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff;margin:0 auto 0.75rem">${ini(G.nickname)}</div>
+    <p style="font-size:18px;font-weight:700;margin-bottom:4px">${G.nickname}</p>
+    <p style="font-size:13px;color:#888;margin-bottom:1.5rem">You're in! &nbsp;<strong>${count}</strong> player${count!==1?'s':''} in lobby.</p>
+    <div class="badge-live" style="display:inline-flex;margin-bottom:1.5rem">Waiting for host</div>
+    <div style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center;max-width:420px;margin:0 auto">
+      ${Object.keys(G.players).map(n=>`
+        <div class="chip" style="background:${gc(n)}18;border-color:${gc(n)}55">
+          ${av(n,16,8,'vertical-align:middle')}
+          <span style="margin-left:3px;color:#333">${n}</span>
+        </div>`).join('')}
     </div>
-    <h2 style="margin-bottom:0.25rem">PAM360 Build 8540 Quiz</h2>
-    <p style="font-size:13px;color:#666;margin-bottom:1.5rem">${QUESTIONS.length} questions &nbsp;·&nbsp; ${QUESTION_TIME}s each</p>
-    ${local.role === 'player' ? `
-      <div style="width:72px;height:72px;border-radius:50%;background:${gc(local.nickname)};display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;margin:0 auto 0.75rem">${ini(local.nickname)}</div>
-      <p style="font-size:17px;font-weight:600;margin-bottom:4px">${local.nickname}</p>
-      <p style="font-size:13px;color:#888;margin-bottom:1.5rem">You're in! <span id="lobby-count">${count}</span> player${count!==1?'s':''} joined so far.</p>
-    ` : ''}
-    <div class="section-title" style="text-align:left">Players joined (<span id="lobby-count2">${count}</span>)</div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:${local.role==='player'?'center':'left'};margin-bottom:1rem" id="chips">
-      ${renderChips(players)}
-    </div>
-    ${count === 0 ? '<p style="font-size:13px;color:#aaa;margin-bottom:1rem">No players yet. Share the QR code or link!</p>' : ''}
-    ${local.role === 'admin' ? `
-      <div class="divider"></div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn-primary" onclick="startQuiz()" ${count===0?'disabled':''}>&#9654; Start quiz (${count} player${count!==1?'s':''})</button>
-        <button class="btn" onclick="go('qr')" style="font-size:12px">&#9638; QR code</button>
-        <button class="btn" onclick="addDemo()" style="font-size:12px">&#128101; Add demo players</button>
-      </div>` : ''}
   </div>`);
 }
 
-function renderChips(players) {
-  return Object.keys(players).map(name =>
-    `<div class="chip" style="background:${gc(name)}22;border:1px solid ${gc(name)}66">
-      <div style="width:18px;height:18px;border-radius:50%;background:${gc(name)};display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff">${ini(name)}</div>
-      <span>${name}</span>
-    </div>`
-  ).join('');
-}
-
-// ─── QUESTION ───
-function rQuestion() {
-  const shared = getShared();
-  if (shared.currentQ < 0 || shared.currentQ >= QUESTIONS.length) return;
-  const q = QUESTIONS[shared.currentQ];
-  const isAdmin = local.role === 'admin';
-  const myAns = local.myAnswers[shared.currentQ];
-  const answered = myAns !== undefined;
-  const count = Object.keys(shared.players||{}).length;
-  const ac = Object.values(shared.players||{}).filter(p=>p.answers&&p.answers[shared.currentQ]!==undefined).length;
-  const t = getTimeLeft(shared);
-
+// ─────────────────────────────────────────────────────────
+// PARTICIPANT QUESTION
+// ─────────────────────────────────────────────────────────
+function rQuestion(){
+  const q=QUESTIONS[G.currentQ];
+  const picked=G.myAnswers[G.currentQ];
+  const answered=picked!==undefined;
   set(`<div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem">
       <div style="display:flex;align-items:center;gap:8px">
-        <span class="tag">${q.topic}</span>
-        <span style="font-size:12px;color:#888">Q${shared.currentQ+1} / ${QUESTIONS.length}</span>
+        <span class="tag tag-blue">${q.topic}</span>
+        <span style="font-size:12px;color:#888">Q${G.currentQ+1}/${QUESTIONS.length}</span>
       </div>
-      <div class="timer-ring${t<=5?' timer-urgent':''}" id="timer-disp">${t}</div>
+      <div class="timer${G.timerVal<=5?' timer-danger':G.timerVal<=10?' timer-warn':''}" id="timer-el">${G.timerVal}</div>
     </div>
-    <div class="progress"><div class="progress-fill" style="width:${Math.round(shared.currentQ/QUESTIONS.length*100)}%"></div></div>
-    <p style="font-size:16px;font-weight:600;margin-bottom:1.25rem;line-height:1.55">${q.q}</p>
-    <div id="opts"></div>
-    ${isAdmin ? `
-      <div class="divider"></div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1rem">
-        <div class="metric"><div class="metric-val" id="ac">${ac}</div><div class="metric-lbl">answered</div></div>
-        <div class="metric"><div class="metric-val" id="rr">${count>0?Math.round(ac/count*100):0}%</div><div class="metric-lbl">response rate</div></div>
-        <div class="metric"><div class="metric-val">${count}</div><div class="metric-lbl">players</div></div>
-      </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn-primary" onclick="revealAnswer()">&#128065; Reveal answer</button>
-        <button class="btn btn-danger" onclick="endQuiz()" style="margin-left:auto">End quiz</button>
-      </div>` :
-    answered ?
-      `<div class="feedback-box" style="background:#e1f5ee;color:#085041;text-align:center">
-        &#10003; Answer locked in! Waiting for host to reveal...
-      </div>` : ''}
+    <div class="prog-bg"><div class="prog-fill" style="width:${Math.round(G.currentQ/QUESTIONS.length*100)}%"></div></div>
+    <p style="font-size:16px;font-weight:700;margin-bottom:1.1rem;line-height:1.55">${q.q}</p>
+    ${q.opts.map((o,i)=>`
+      <button class="opt${answered&&i===picked?' picked':''}" ${answered?'disabled':''} onclick="playerAnswer(${i})">
+        <span style="font-weight:700;color:#bbb;margin-right:8px">${String.fromCharCode(65+i)}.</span>${o}
+      </button>`).join('')}
+    ${answered
+      ?`<div style="margin-top:1rem;padding:0.75rem 1rem;background:#e6f7f1;border:1px solid #6ee7b7;border-radius:9px;font-size:13px;color:#065f46;text-align:center">
+          &#10003;&nbsp; Answer locked in — waiting for host to reveal
+        </div>`
+      :''}
   </div>`);
-
-  const opts = document.getElementById('opts');
-  q.opts.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'opt-btn';
-    if (isAdmin) { btn.disabled = true; }
-    else if (answered) { btn.disabled = true; if (i === myAns) btn.className += ' selected'; }
-    btn.innerHTML = `<span style="font-weight:700;margin-right:8px;color:#aaa">${String.fromCharCode(65+i)}.</span>${opt}`;
-    if (!isAdmin && !answered) btn.onclick = () => submitAnswer(i);
-    opts.appendChild(btn);
-  });
-
-  if (isAdmin) startAdminTimer();
 }
 
-function submitAnswer(i) {
-  if (local.myAnswers[getShared().currentQ] !== undefined) return;
-  const shared = getShared();
-  const q = QUESTIONS[shared.currentQ];
-  const timeTaken = QUESTION_TIME - getTimeLeft(shared);
-  const correct = i === q.answer;
-  const points = correct ? Math.max(50, Math.round(500 - timeTaken * 40)) : 0;
-
-  local.myAnswers[shared.currentQ] = i;
-
-  // Write answer to shared state
-  if (shared.players[local.nickname]) {
-    shared.players[local.nickname].answers = shared.players[local.nickname].answers || {};
-    shared.players[local.nickname].answers[shared.currentQ] = { choice: i, correct, points, timeTaken };
-    shared.players[local.nickname].score = (shared.players[local.nickname].score || 0) + points;
-    setShared(shared);
+function playerAnswer(i){
+  if(G.myAnswers[G.currentQ]!==undefined)return;
+  G.myAnswers[G.currentQ]=i;
+  const q=QUESTIONS[G.currentQ];
+  const correct=i===q.answer;
+  const timeTaken=Q_TIME-G.timerVal;
+  const pts=correct?Math.max(50,Math.round(500-timeTaken*42)):0;
+  if(G.players[G.nickname]){
+    G.players[G.nickname].answers[G.currentQ]={choice:i,correct,pts,time:timeTaken};
+    G.players[G.nickname].score=(G.players[G.nickname].score||0)+pts;
   }
   render();
 }
 
-// ─── REVEAL ───
-function rReveal() {
-  const shared = getShared();
-  const q = QUESTIONS[shared.currentQ];
-  const isAdmin = local.role === 'admin';
-  const myAnsData = local.role === 'player' ? (shared.players[local.nickname]?.answers?.[shared.currentQ]) : null;
-  const correct = myAnsData?.correct || false;
-  const myChoice = local.myAnswers[shared.currentQ];
-  const top = Object.entries(shared.players||{})
-    .filter(([,p])=>p.answers&&p.answers[shared.currentQ]?.correct)
-    .sort((a,b)=>a[1].answers[shared.currentQ].timeTaken-b[1].answers[shared.currentQ].timeTaken)
-    .slice(0,3);
-
+// ─────────────────────────────────────────────────────────
+// PARTICIPANT REVEAL
+// ─────────────────────────────────────────────────────────
+function rReveal(){
+  const q=QUESTIONS[G.currentQ];
+  const myAns=G.players[G.nickname]?.answers?.[G.currentQ];
+  const picked=G.myAnswers[G.currentQ];
+  const correct=myAns?.correct||false;
   set(`<div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem">
-      <span class="tag">${q.topic}</span>
-      <span style="font-size:12px;color:#888">Q${shared.currentQ+1}/${QUESTIONS.length} · revealed</span>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem">
+      <span class="tag tag-orange">Answer revealed</span>
+      <span style="font-size:12px;color:#888">Q${G.currentQ+1}/${QUESTIONS.length}</span>
     </div>
-    <p style="font-size:16px;font-weight:600;margin-bottom:1.25rem;line-height:1.55">${q.q}</p>
-    <div id="rev-opts"></div>
-    ${!isAdmin && myAnsData ? `
-      <div class="feedback-box" style="background:${correct?'#EAF3DE':'#FCEBEB'};color:${correct?'#27500A':'#501313'}">
-        <strong>${correct?'&#10003; Correct!':'&#10007; Incorrect.'}</strong>
-        ${correct?` You earned <strong>+${myAnsData.points} pts</strong> (answered in ${myAnsData.timeTaken.toFixed(1)}s)`
-          :` Correct answer: <strong>${String.fromCharCode(65+q.answer)}. ${q.opts[q.answer]}</strong>`}
-      </div>` :
-    !isAdmin && myChoice === undefined ? `
-      <div class="feedback-box" style="background:#f5f5f3;color:#666">
-        You didn't answer this question in time.
-      </div>` : ''}
-    <div class="divider"></div>
-    <div class="section-title">Fastest correct answers</div>
-    ${top.length===0
-      ? '<p style="font-size:13px;color:#888">No correct answers this round.</p>'
-      : top.map(([name],i)=>`
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-size:13px;font-weight:600;width:28px;${i===0?'color:#BA7517':i===1?'color:#888':'color:#854F0B'}">${['1st','2nd','3rd'][i]}</span>
-          ${av(name,30,11)}
-          <span style="font-size:14px;font-weight:500">${name}</span>
-          <span style="font-size:13px;color:#888;margin-left:auto">${shared.players[name].answers[shared.currentQ].timeTaken.toFixed(1)}s</span>
-        </div>`).join('')}
-    ${isAdmin ? `
-      <div class="divider"></div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn-primary" onclick="nextQuestion()">&#8594; ${shared.currentQ+1<QUESTIONS.length?'Next question':'Final results'}</button>
-        <button class="btn" onclick="showLeaderboard()">&#9733; Leaderboard</button>
-      </div>` :
-      `<p style="font-size:13px;color:#888;margin-top:1rem;text-align:center" class="pulse">Waiting for host to continue...</p>`}
+    <p style="font-size:16px;font-weight:700;margin-bottom:1rem;line-height:1.55">${q.q}</p>
+    ${q.opts.map((o,i)=>`
+      <button class="opt ${i===q.answer?'reveal-correct':picked===i&&!correct?'wrong':''}" disabled>
+        <span style="font-weight:700;color:${i===q.answer?'#14532d':'#bbb'};margin-right:8px">${String.fromCharCode(65+i)}.</span>${o}
+        ${i===q.answer?' &#10003;':''}
+      </button>`).join('')}
+    ${myAns
+      ?`<div style="margin-top:1rem;padding:0.8rem 1rem;border-radius:9px;font-size:14px;font-weight:500;
+          background:${correct?'#dcfce7':'#fee2e2'};color:${correct?'#14532d':'#7f1d1d'};
+          border:1px solid ${correct?'#86efac':'#fca5a5'}">
+          ${correct?`&#9989;&nbsp; Correct! +${myAns.pts} pts &nbsp;·&nbsp; answered in ${myAns.time.toFixed(1)}s`
+            :`&#10060;&nbsp; Incorrect. Correct answer: <strong>${String.fromCharCode(65+q.answer)}. ${q.opts[q.answer]}</strong>`}
+        </div>`
+      :`<div style="margin-top:1rem;padding:0.8rem 1rem;background:#f5f5f3;border-radius:9px;font-size:13px;color:#888">Time ran out — no answer recorded.</div>`}
+    <div style="margin-top:0.75rem;padding:0.7rem 0.9rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:13px;color:#14532d;line-height:1.55">
+      &#128161;&nbsp;<strong>Why?</strong> ${q.explain}
+    </div>
+    <p style="font-size:13px;color:#aaa;margin-top:1rem;text-align:center" class="pulse">Waiting for host to continue...</p>
   </div>`);
-
-  const ro = document.getElementById('rev-opts');
-  q.opts.forEach((opt,i) => {
-    const btn = document.createElement('button');
-    btn.className = 'opt-btn'; btn.disabled = true;
-    if (i === q.answer) btn.className += ' correct';
-    else if (myChoice === i) btn.className += ' wrong';
-    btn.innerHTML = `<span style="font-weight:700;margin-right:8px;color:#aaa">${String.fromCharCode(65+i)}.</span>${opt}`;
-    ro.appendChild(btn);
-  });
 }
 
-// ─── LEADERBOARD ───
-function rLeaderboard() {
-  const shared = getShared();
-  const lbd = getLB(shared.players);
-  const maxScore = lbd[0]?.score || 1;
+// ─────────────────────────────────────────────────────────
+// PARTICIPANT LEADERBOARD
+// ─────────────────────────────────────────────────────────
+function rLB(){
+  const lb=lbData();
+  const ms=lb[0]?.score||1;
   set(`<div>
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
-      <h2>Leaderboard</h2>
-      <span style="font-size:12px;color:#888">Q${shared.currentQ+1}/${QUESTIONS.length}</span>
+      <h2 style="font-size:20px;font-weight:700">Leaderboard</h2>
     </div>
-    <div id="lb-list"></div>
-    ${local.role==='admin'?`
-      <div class="divider"></div>
-      <button class="btn btn-primary" onclick="go('reveal')">&#8592; Back to question</button>
-    `:
-    `<p style="font-size:13px;color:#888;margin-top:1rem;text-align:center" class="pulse">Waiting for host...</p>`}
+    <div id="lb-r"></div>
+    <p style="font-size:13px;color:#aaa;margin-top:1rem;text-align:center" class="pulse">Waiting for host...</p>
   </div>`);
-  renderLBRows(shared, maxScore);
-}
-
-function renderLBRows(shared, maxScore) {
-  const list = document.getElementById('lb-list');
-  if (!list) return;
-  const lbd = getLB(shared.players);
-  const ms = maxScore || lbd[0]?.score || 1;
-  list.innerHTML = '';
-  lbd.slice(0,20).forEach((p,i) => {
-    const row = document.createElement('div');
-    row.className = 'lb-row';
-    const isMe = p.name === local.nickname;
-    row.style.cssText = isMe ? 'background:#e1f5ee;border:1px solid #1D9E75' : '';
-    row.innerHTML = `<span class="lb-rank">${i===0?'🥇':i===1?'🥈':i===2?'🥉':p.rank}</span>
-      ${av(p.name,30,11)}
-      <span class="lb-name">${p.name}${isMe?' <span style="font-size:11px;color:#1D9E75">(you)</span>':''}</span>
-      <div class="lb-bar-wrap"><div class="lb-bar" style="width:${Math.round(p.score/ms*100)}%"></div></div>
-      <span class="lb-score">${p.score} pts</span>`;
-    list.appendChild(row);
+  const el=document.getElementById('lb-r');
+  lb.slice(0,20).forEach((p,i)=>{
+    const r=document.createElement('div');
+    r.className=`lb-row${p.name===G.nickname?' me':''}`;
+    r.innerHTML=`<span style="font-size:${i<3?18:13}px;width:28px;text-align:center">${i===0?'🥇':i===1?'🥈':i===2?'🥉':p.rank}</span>
+      ${av(p.name,32,12)}
+      <span class="lb-name">${p.name}${p.name===G.nickname?' <span style="font-size:11px;color:#1D9E75;font-weight:600">(you)</span>':''}</span>
+      <div class="lb-bar-bg"><div class="lb-bar-fill" style="width:${Math.round(p.score/ms*100)}%"></div></div>
+      <span class="lb-pts">${p.score} pts</span>`;
+    el.appendChild(r);
   });
 }
 
-// ─── FINISHED ───
-function rFinished() {
-  const shared = getShared();
-  const lbd = getLB(shared.players);
-  const maxScore = lbd[0]?.score || 1;
+// ─────────────────────────────────────────────────────────
+// PARTICIPANT FINISHED
+// ─────────────────────────────────────────────────────────
+function rFinished(){
+  const lb=lbData();
+  const ms=lb[0]?.score||1;
+  const me=lb.find(p=>p.name===G.nickname);
   set(`<div>
     <div style="text-align:center;margin-bottom:1.5rem">
-      <div style="font-size:32px;margin-bottom:0.5rem">&#127881;</div>
-      <div style="font-size:13px;color:#888;margin-bottom:4px">Quiz complete!</div>
-      <h1>Final Results</h1>
+      <div style="font-size:40px;margin-bottom:6px">&#127881;</div>
+      <h1 style="font-size:24px;font-weight:700">Quiz Complete!</h1>
+      ${me?`<p style="font-size:14px;color:#666;margin-top:6px">You finished <strong>${me.rank===1?'1st':me.rank===2?'2nd':me.rank===3?'3rd':me.rank+'th'}</strong> with <strong>${me.score} pts</strong></p>`:''}
     </div>
-    ${lbd.slice(0,3).map((p,i)=>`
+    ${lb.slice(0,3).map((p,i)=>`
       <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;margin-bottom:8px;
-        background:${i===0?'#FAEEDA':i===1?'#F1EFE8':'#FAECE7'};
-        border:1px solid ${i===0?'#EF9F27':i===1?'#B4B2A9':'#F09595'}">
-        <span style="font-size:24px">${['🥇','🥈','🥉'][i]}</span>
-        ${av(p.name,40,14)}
+        background:${['#FEFCE8','#F8FAFC','#FFF7ED'][i]};
+        border:1.5px solid ${['#FDE047','#CBD5E1','#FDBA74'][i]}${p.name===G.nickname?';outline:2px solid #1D9E75;outline-offset:2px':''}">
+        <span style="font-size:26px">${['🥇','🥈','🥉'][i]}</span>
+        ${av(p.name,42,15)}
         <div style="flex:1">
-          <div style="font-size:15px;font-weight:600">${p.name}</div>
-          <div style="font-size:12px;color:#666">${p.score} points</div>
+          <div style="font-size:15px;font-weight:700">${p.name}${p.name===G.nickname?' <span style="font-size:11px;color:#1D9E75">(you)</span>':''}</div>
+          <div style="font-size:12px;color:#777">${p.score} pts</div>
         </div>
-        <div style="font-size:20px;font-weight:700">${Math.round(p.score/(QUESTIONS.length*500)*100)}%</div>
+        <div style="font-size:20px;font-weight:800;color:#1D9E75">${Math.round(p.score/(QUESTIONS.length*500)*100)}%</div>
       </div>`).join('')}
-    <div class="divider"></div>
-    <div class="section-title">Full standings</div>
+    <div class="hr"></div>
+    <p class="sec">All results</p>
     <div id="lb-full"></div>
-    ${local.role==='admin'?`<div class="divider"></div><button class="btn" onclick="resetAll()">&#8635; New quiz</button>`:''}
   </div>`);
-  const full = document.getElementById('lb-full');
-  lbd.forEach(p => {
-    const row = document.createElement('div'); row.className = 'lb-row';
-    const isMe = p.name === local.nickname;
-    row.style.cssText = isMe ? 'background:#e1f5ee;border:1px solid #1D9E75' : '';
-    row.innerHTML = `<span class="lb-rank">${p.rank}</span>
-      ${av(p.name,28,10)}
-      <span class="lb-name">${p.name}${isMe?' <span style="font-size:11px;color:#1D9E75">(you)</span>':''}</span>
-      <div class="lb-bar-wrap"><div class="lb-bar" style="width:${Math.round(p.score/maxScore*100)}%"></div></div>
-      <span class="lb-score">${p.score} pts</span>`;
-    full.appendChild(row);
+  const el=document.getElementById('lb-full');
+  lb.forEach(p=>{
+    const r=document.createElement('div');
+    r.className=`lb-row${p.name===G.nickname?' me':''}`;
+    r.innerHTML=`<span style="font-size:13px;font-weight:700;width:28px;text-align:center;color:#999">${p.rank}</span>
+      ${av(p.name,30,11)}
+      <span class="lb-name">${p.name}${p.name===G.nickname?' <span style="font-size:11px;color:#1D9E75">(you)</span>':''}</span>
+      <div class="lb-bar-bg"><div class="lb-bar-fill" style="width:${Math.round(p.score/ms*100)}%"></div></div>
+      <span class="lb-pts">${p.score} pts</span>`;
+    el.appendChild(r);
   });
 }
 
-// ─── ADMIN PANEL ───
-function rAdmin() {
-  const shared = getShared();
-  const count = Object.keys(shared.players||{}).length;
-  const lbd = getLB(shared.players);
-  const maxScore = lbd[0]?.score || 1;
-
-  set(`<div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
-      <h2>Host panel</h2>
-      <div style="display:flex;gap:6px;align-items:center">
-        <button class="btn" onclick="go('qr')" style="padding:0.4rem 0.75rem;font-size:12px">&#9638; QR</button>
-        <span class="tag">Admin</span>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1rem">
-      <div class="metric"><div class="metric-val">${count}</div><div class="metric-lbl">players</div></div>
-      <div class="metric"><div class="metric-val">${shared.currentQ<0?'—':shared.currentQ+1+'/'+QUESTIONS.length}</div><div class="metric-lbl">question</div></div>
-      <div class="metric"><div class="metric-val">${shared.phase==='lobby'?'Lobby':shared.phase==='question'?'Live':shared.phase==='finished'?'Done':'—'}</div><div class="metric-lbl">status</div></div>
-    </div>
-    <div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap">
-      ${shared.phase==='lobby'?`<button class="btn btn-primary" onclick="startQuiz()" ${count===0?'disabled':''}>&#9654; Start quiz (${count} player${count!==1?'s':''})</button>`:''}
-      ${shared.phase==='question'?`<button class="btn btn-primary" onclick="revealAnswer()">&#128065; Reveal answer</button>`:''}
-      ${(shared.phase==='question'||shared.phase==='reveal')?`<button class="btn" onclick="nextQuestion()">&#8594; ${shared.currentQ+1<QUESTIONS.length?'Next Q':'Finish'}</button>`:''}
-      ${shared.phase!=='lobby'&&shared.phase!=='finished'?`<button class="btn btn-danger" onclick="endQuiz()">End quiz</button>`:''}
-      ${shared.phase==='finished'?`<button class="btn" onclick="resetAll()">&#8635; Reset</button>`:''}
-    </div>
-    <div class="section-title">Players in lobby (${count})</div>
-    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:1rem">
-      ${count===0
-        ? '<span style="font-size:13px;color:#888">No players yet. Share the QR code or link!</span>'
-        : renderChips(shared.players||{})}
-    </div>
-    <button class="btn" onclick="addDemo()" style="font-size:12px;margin-bottom:1rem">&#128101; Add demo players</button>
-    ${lbd.length>0?`
-      <div class="section-title" style="margin-top:0.5rem">Live leaderboard</div>
-      <div>${lbd.slice(0,10).map((p,i)=>`
-        <div class="lb-row">
-          <span class="lb-rank">${i===0?'🥇':i===1?'🥈':i===2?'🥉':p.rank}</span>
-          ${av(p.name,28,10)}
-          <span class="lb-name">${p.name}</span>
-          <div class="lb-bar-wrap"><div class="lb-bar" style="width:${Math.round(p.score/maxScore*100)}%"></div></div>
-          <span class="lb-score">${p.score} pts</span>
-        </div>`).join('')}
-      </div>`:''}
-  </div>`);
-}
-
-// ─── HOST CONTROLS ───
-function startQuiz() {
-  const shared = getShared();
-  shared.phase = 'question';
-  shared.currentQ = 0;
-  shared.timerStart = Date.now();
-  shared.revealed = false;
-  setShared(shared);
-  go('question');
-  startAdminTimer();
-}
-
-function revealAnswer() {
-  clearInterval(adminTimerInterval);
-  const shared = getShared();
-  shared.phase = 'reveal';
-  setShared(shared);
-  go('reveal');
-}
-
-function nextQuestion() {
-  const shared = getShared();
-  if (shared.currentQ + 1 >= QUESTIONS.length) { endQuiz(); return; }
-  shared.currentQ++;
-  shared.phase = 'question';
-  shared.timerStart = Date.now();
-  shared.revealed = false;
-  setShared(shared);
-  go('question');
-  startAdminTimer();
-}
-
-function showLeaderboard() {
-  const shared = getShared();
-  shared.phase = 'leaderboard';
-  setShared(shared);
-  go('leaderboard');
-}
-
-function endQuiz() {
-  clearInterval(adminTimerInterval);
-  const shared = getShared();
-  shared.phase = 'finished';
-  setShared(shared);
-  go('finished');
-}
-
-function resetAll() {
-  clearInterval(adminTimerInterval);
-  setShared(defaultShared());
-  local.myAnswers = {};
-  go('admin');
-}
-
-function addDemo() {
-  const shared = getShared();
-  ['Priya_K','DevOps_Sam','SecLead_Jo','CloudArch','SysAdmin99','PenTester','NetOps_Al','IAM_Expert','Infra_Dan','ReleaseBot'].forEach(n => {
-    if (!shared.players[n]) shared.players[n] = { score: 0, answers: {}, joined: true };
-  });
-  setShared(shared);
-  render();
-}
-
-startPolling();
 render();
 </script>
 </body>
